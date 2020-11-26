@@ -1,0 +1,74 @@
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+% \usepackage{graphicx}
+\begin{table}[t!]
+\centering
+\caption{Comparison of results between None and CFS models in terms of a mean value for 45 datasets}
+\label{tab:CFS}
+\resizebox*{!}{0.9\textheight}{%
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\textbf{ML} & \textbf{Measurement} & \textbf{\# of prediction cases} & \textbf{None} & \textbf{CFS} \\ \hline
+\multirow{10}{*}{LR}  & \multirow{2}{*}{AUC}       & A & 0.746 & 0.750(N)                    \\ \cline{3-5} 
+                      &                            & B & 0.743 & 0.773(N)                   \\ \cline{2-5} 
+                      & \multirow{2}{*}{Precision} & A & 0.640  & 0.636(N)                   \\ \cline{3-5} 
+                      &                            & B & 0.625 & 0.684(N)                   \\ \cline{2-5} 
+                      & \multirow{2}{*}{Recall}    & A & 0.466 & 0.422*(N)                  \\ \cline{3-5} 
+                      &                            & B & 0.488 & 0.472*(N)                  \\ \cline{2-5} 
+                      & \multirow{2}{*}{Fmeasure}  & A & 0.506 & 0.476*(N)                  \\ \cline{3-5} 
+                      &                            & B & 0.524 & 0.539\textasciicircum{}(N) \\ \cline{2-5} 
+                      & \multirow{2}{*}{MCC}       & A & 0.318 & 0.296*(N)                  \\ \cline{3-5} 
+                      &                            & B & 0.316 & 0.359(N)                   \\ \hline
+\multirow{10}{*}{DT}  & \multirow{2}{*}{AUC}       & A & 0.664 & 0.670(N)                    \\ \cline{3-5} 
+                      &                            & B & 0.650  & 0.666\textasciicircum{}(N) \\ \cline{2-5} 
+                      & \multirow{2}{*}{Precision} & A & 0.592 & 0.611\textasciicircum{}(N) \\ \cline{3-5} 
+                      &                            & B & 0.588 & 0.651(N)                   \\ \cline{2-5} 
+                      & \multirow{2}{*}{Recall}    & A & 0.494 & 0.465(N)                   \\ \cline{3-5} 
+                      &                            & B & 0.517 & 0.496(N)                   \\ \cline{2-5} 
+                      & \multirow{2}{*}{Fmeasure}  & A & 0.522 & 0.502(N)                   \\ \cline{3-5} 
+                      &                            & B & 0.536 & 0.553(N)                   \\ \cline{2-5} 
+                      & \multirow{2}{*}{MCC}       & A & 0.313 & 0.303(N)                   \\ \cline{3-5} 
+                      &                            & B & 0.309 & 0.346(N)                   \\ \hline
+\multirow{10}{*}{RF}  & \multirow{2}{*}{AUC}       & A & 0.803 & 0.772*(S)                  \\ \cline{3-5} 
+                      &                            & B & 0.789 & 0.778*(S)                  \\ \cline{2-5} 
+                      & \multirow{2}{*}{Precision} & A & 0.668 & 0.625*(S)                  \\ \cline{3-5} 
+                      &                            & B & 0.647 & 0.665\textasciicircum{}(N) \\ \cline{2-5} 
+                      & \multirow{2}{*}{Recall}    & A & 0.513 & 0.505*(N)                  \\ \cline{3-5} 
+                      &                            & B & 0.527 & 0.527(N)                   \\ \cline{2-5} 
+                      & \multirow{2}{*}{Fmeasure}  & A & 0.555 & 0.537*(N)                  \\ \cline{3-5} 
+                      &                            & B & 0.559 & 0.569\textasciicircum{}(N) \\ \cline{2-5} 
+                      & \multirow{2}{*}{MCC}       & A & 0.379 & 0.345*(N)                  \\ \cline{3-5} 
+                      &                            & B & 0.366 & 0.375\textasciicircum{}(N) \\ \hline
+\multirow{10}{*}{NB}  & \multirow{2}{*}{AUC}       & A & 0.738 & 0.739(N)                   \\ \cline{3-5} 
+                      &                            & B & 0.729 & 0.762(N)                   \\ \cline{2-5} 
+                      & \multirow{2}{*}{Precision} & A & 0.565 & 0.600\textasciicircum{}(N)   \\ \cline{3-5} 
+                      &                            & B & 0.588 & 0.650\textasciicircum{}(N)  \\ \cline{2-5} 
+                      & \multirow{2}{*}{Recall}    & A & 0.518 & 0.457*(N)                  \\ \cline{3-5} 
+                      &                            & B & 0.450  & 0.475\textasciicircum{}(N) \\ \cline{2-5} 
+                      & \multirow{2}{*}{Fmeasure}  & A & 0.490  & 0.484(N)                   \\ \cline{3-5} 
+                      &                            & B & 0.488 & 0.527(N)                   \\ \cline{2-5} 
+                      & \multirow{2}{*}{MCC}       & A & 0.287 & 0.302(N)                   \\ \cline{3-5} 
+                      &                            & B & 0.285 & 0.352\textasciicircum{}(N) \\ \hline
+\multirow{10}{*}{BN}  & \multirow{2}{*}{AUC}       & A & 0.754 & 0.752(N)                   \\ \cline{3-5} 
+                      &                            & B & 0.743 & 0.765(N)                   \\ \cline{2-5} 
+                      & \multirow{2}{*}{Precision} & A & 0.552 & 0.563\textasciicircum{}(N) \\ \cline{3-5} 
+                      &                            & B & 0.566 & 0.599(N)                   \\ \cline{2-5} 
+                      & \multirow{2}{*}{Recall}    & A & 0.572 & 0.563(N)                   \\ \cline{3-5} 
+                      &                            & B & 0.578 & 0.601(N)                   \\ \cline{2-5} 
+                      & \multirow{2}{*}{Fmeasure}  & A & 0.539 & 0.546(N)                   \\ \cline{3-5} 
+                      &                            & B & 0.560  & 0.586(N)                   \\ \cline{2-5} 
+                      & \multirow{2}{*}{MCC}       & A & 0.333 & 0.339(N)                   \\ \cline{3-5} 
+                      &                            & B & 0.337 & 0.377(N)                   \\ \hline
+\multirow{10}{*}{LMT} & \multirow{2}{*}{AUC}       & A & 0.760  & 0.751*(N)                  \\ \cline{3-5} 
+                      &                            & B & 0.740  & 0.765(N)                   \\ \cline{2-5} 
+                      & \multirow{2}{*}{Precision} & A & 0.665 & 0.659(N)                   \\ \cline{3-5} 
+                      &                            & B & 0.644 & 0.695(N)                   \\ \cline{2-5} 
+                      & \multirow{2}{*}{Recall}    & A & 0.454 & 0.439*(N)                  \\ \cline{3-5} 
+                      &                            & B & 0.467 & 0.472(N)                   \\ \cline{2-5} 
+                      & \multirow{2}{*}{Fmeasure}  & A & 0.513 & 0.501(N)                   \\ \cline{3-5} 
+                      &                            & B & 0.515 & 0.545(N)                   \\ \cline{2-5} 
+                      & \multirow{2}{*}{MCC}       & A & 0.333 & 0.322*(N)                  \\ \cline{3-5} 
+                      &                            & B & 0.321 & 0.365(N)                   \\ \hline
+\end{tabular}%
+}
+\end{table}

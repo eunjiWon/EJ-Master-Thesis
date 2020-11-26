@@ -1,0 +1,183 @@
+\chapter{Experimental Setup}
+\thispagestyle{fancy}
+\label{sec:experimentalsetup}
+\bigskip
+\section{ Research Questions}
+To verify whether removing the multicollinearity affects defect prediction performance, we conducted a large scale experiments 
+% \footnote{The replication package will be shared but for the double-blind review is not revealed yet.}
+and set the following three research questions.
+\begin{itemize}
+  \item \textbf{RQ1: Are the defect datasets suffering from multicollinearity?}
+%   \jc{A research question should deal with a general case. So I think this RQ can be changed like are the defect datasets suffering...}
+  \item \textbf{RQ2: How do the various multicollinearity removal techniques affect predictive performance?}
+  \item \textbf{RQ3: How does multicollinearity affect predictive performance when using various machine learns a classifier?}
+  % \jc{updated by adding 'as a'. update globally} 
+  % \item RQ3: Does applying PCA and VIF lead to better defect prediction performance compared to other prediction settings without applying them?
+  % \jc{updated RQ3. revise results section accordingly.}?
+  % \item RQ2: Do feature selection techniques based on VIF improve prediction performance?
+  % \item RQ3: Which factor mostly affects defect prediction performance?
+\end{itemize}
+RQ1 is a preliminary research question to be investigated before addressing RQ2 and RQ3. That is because if the datasets used in our experiments do not suffer from multicollinearity problem, RQ2 and RQ3 could not clearly show the impact of multicollinearity. 
+
+For RQ2, We chose PCA, VIF, and VCRR to remove the multicollinearity as they are widely used in defect prediction studies~\cite{Holschuh2009ICSESAP, Zhang2017TSEaggregate, Pinzger2008FSEnetwork, Nagappan2008ICSEorg, Zimmermann2008ICSEnetwork, Eaddy2008TSEcrosscutting, Chen2012MSRExplaining,Shang2015EMSElog, Ambros2010MSRExtensiveComparison, Posnett2011ASEEcologicalInference, Ray2014FSElaguageandquality, Bettenburg2015EMSElocallyglobally, Zhao2015ISTPackageMetrics, MA2016ISTNetworkMeasures, Mensah2018ISTDuplex, Jiarpakdee2019TSE, Pinzger2008FSEnetwork, Cataldo2009TSEdependencies, Shihab2011FSEhighimpact, Bird2012MSRdistributed, Bettenburg2013EMSEinteractions, McIntosh2014MSRCodeReview, YangTSE2015cohesion, Palomba2017TSEsmell,Rajbahadur2017MSRRegression, McIntosh2017TSELongitudinal, Tantithamthavorn2018TSEClassRebalancing, Tantithamthavorn2019TSEAutomatedParameter, Thongtanunam2016ICSEowndershipcodequality}.
+% \jc{is there any explanation why ridge was not included?}
+However, we did not select ridge regression. 
+Rehman et al.~\cite{Rahman2013FSEbias} used ridge regression based on logistic regression. In addition, Yang et al.~\cite{Yang2018TRRidge} used ridge regression based on linear regression. As in the above two papers, ridge regression is dependent on the regression model. 
+Thus, the ridge regression was not included in the experiment because we should use multicollinearity removal techniques that can be applied independently to machine learners.
+
+RQ3 investigates the impact of multicollinearity under various machine learners as listed in Section~\ref{mls}. Defect prediction models can be built by various machine learners. Thus, we conducted our experiments by using various machine learners to generalize our experimental findings.
+
+%To answer RQ1, we compare prediction models constructed using PCA-preprocessed datasets to those retaining multicollinearity. Answering RQ1 reveal whether PCA helps improve defect prediction performance.
+% In RQ2, we compare prediction models with VIF to those without VIF to investigate if a representative feature selection is helpful to improve defect prediction performance. 
+% In RQ2\jc{update RQ1 part like this}, we compare prediction models by selected features via VIF to those without removing multicollinearity. By answering RQ2, we investigate if VIF is helpful to improve defect prediction performance. 
+%To answer RQ2, we compare prediction models with VIF-selected features to those retaining multicollinearity. By answering RQ2, we investigate whether VIF helps improve defect prediction performance. 
+%To answer RQ3, we compare prediction models with VCRR-selected features to those retaining multicollinearity. By answering RQ3, we investigate whether VCRR helps improve defect prediction performance.
+% To answer RQ3, we compared 12 different models with or without applying multicollinearity treatment approaches. By answering RQ3, we experimentally determined whether multicollinearity removal can affect defect prediction model performance and investigated which factor is more important for better prediction performance.
+% In RQ3, we compare 12 different models with or without applying approaches that deal with multicollinearity. By answering RQ3, we can experimentally explain if removing multicollinearity can affect the performance of defect prediction models and investigate which factor is more important for better prediction performance.
+%that can be divided into two groups. 
+%The first group of approaches is associated with techniques that remove multicollinearity. % PCA, VIF, CFS(?)
+%The second group of approach is is the models that do not apply any techniques. % None
+%The third group of approach is the models that do not apply any techniques. % WFS
+
+\section{ Data}
+We conduct our experiments with 45 defect datasets widely used in previous studies~\cite{DAmbros2012EMSEbenchmark, Wu2011FSEReLink, Kamei2013TSEjit, ghotra2017msr}.
+%\jc{put the space before the citatin number. Fix globally}. 
+% \jc{change this `project'. changed also in related sections and tables.}
+Table~\ref{tab:datasets} details all dataset groups used in our experiments. 
+% The columns in this table show groups, projects, the number of instances, the number of metrics, and prediction granularity.
+% The column, `\# of instances' shows both the total number of instances and the ratios of buggy instances. 
+The AEEEM dataset group consists of 61 metrics including object-oriented (OO) metrics, previous-defect metrics, change and code entropy metrics, and churn-of-source-code metrics~\cite{DAmbros2012EMSEbenchmark}. 
+The JIT\textunderscore QA dataset group holds 14 metrics including diffusion-of-change, size-of-change, purpose-of-change, history-of-change, and experience-of-developer metrics~\cite{Kamei2013TSEjit}. 
+The NASA and PROMISE are from the PROMISE Software Engineering Repository~\cite{ghotra2017msr}. 
+The ReLink dataset was created by Wu et al.~\cite{Wu2011FSEReLink}, 
+%improving the defect prediction performance via improved the data quality an 
+which used 26 code complexity metrics. %\jc{cite.}. 
+Prediction granularity of datasets varies (class, change, module, and file).
+
+\input{tables/2_listofdatasets}
+
+% \section{Approaches\jc{Prediction Models with Various Settings}} 
+\section{ Prediction Models with Various Settings} 
+To examine whether defect prediction model performance degradation occurs when a dataset suffers from multicollinearity, 
+% Thus~\jc{avoid to use `So'}, we set 12 models with or without feature extraction and selection approaches: \emph{None}, Default-PCA, NSVIF10, NSVIF5, NSVIF4, NSVIF2.5, SVIF10, SVIF5, SVIF4, SVIF2.5, CFS-BestFirst, and WFS-BestFirst.   
+we establish 11 types of models with or without multicollinearity removal techniques: \emph{None}, \emph{Default-PCA}, \emph{NSVIF10}, \emph{NSVIF5}, \emph{NSVIF4}, \emph{NSVIF2.5}, \emph{SVIF10}, \emph{SVIF5}, \emph{SVIF4}, \emph{SVIF2.5}, and \emph{VCRR}.
+% jc{CFS and WFS is not mentioned in RQs, we might need to add RQ4 like do the widely used feature selection techniques (that are not aiming for removing the multicolinearity) such as CFS and WFS improve prediction perfmance?}
+
+The baseline prediction model, \emph{None}, is constructed using the original dataset, without applying any multicollinearity removal techniques.
+% for this baseline.
+%When multicollinearity occurs, we can not do remove multicollinearity just leave the model as is~\cite{gujarati2009basic}.
+% ~\jc{Previous sentence was weird. Revised. check how my sentence is different from yours. Do not interpret your Korean expression in English. Try to write a simple, short, and clear sentence directly in English.}
+
+\emph{Default-PCA} is a defect prediction model that uses PCA to remove multicollinearity. As noted above, PCA is a representative feature extraction approach applied for multicollinearity removal in defect prediction studies. 
+% In Table~\ref{tab:listofpapers}, those studies~\cite{Holschuh2009ICSESAP, Zhang2017TSEaggregate, Pinzger2008FSEnetwork, Nagappan2008ICSEorg, Zimmermann2008ICSEnetwork, Eaddy2008TSEcrosscutting, Chen2012MSRExplaining,Shang2015EMSElog, Ambros2010MSRExtensiveComparison} are used PCA.
+% PCA를 이용해서 다중공선성을 제거한 논문들을 인용하면 되는건가요?
+% ~\jc{cite this sentence. avoid to use `popular'} 
+% In addition, PCA is one of the feature extraction methods that create new features as a transform of original features~\jc{if PCA is explained in previous sections, you do not need to repeat here.}. 
+When applying PCA, we selected principal components yielding a cumulative sample variance exceeding 95\%~\cite{Zimmermann2008ICSEnetwork, Pinzger2008FSEnetwork}. 
+% In Weka, dimensionality reduction is accomplished by choosing enough eigenvectors to account for some percentage of the variance in the original data\jc{is this required sentence?? }. 
+% The default percentage of the variance is 0.95 (95\%).~\jc{We may not need to explain 0.95 is Weka's default variance.} 
+
+% \emph{NSVIF10}, \emph{NSVIF5}, \emph{NSVIF4}, \emph{NSVIF2.5}, \emph{SVIF10}, \emph{SVIF5}, \emph{SVIF4}, and \emph{SVIF2.5} are defect prediction models that variance inflation factor (VIF) to remove multicollinearity of datasets. 
+% \jc{VIF is already explained in Section 2.1.2. Do we need these sentences?} VIF is one of feature selection techniques that do not create new features, but subset them by removing unnecessary features from existing features. 
+% In addition, VIF is an unsupervised method that does not require class labels because it only considers linear correlation between features. 
+% \jc{I have updated this paragraph. please check if it is better and correct.}
+\emph{NSVIF10}, \emph{NSVIF5}, \emph{NSVIF4}, \emph{NSVIF2.5}, \emph{SVIF10}, \emph{SVIF5}, \emph{SVIF4}, and \emph{SVIF2.5} are defect prediction models based on VIF.
+%, which is a method for multicollinearity removal.
+% In Table~\ref{tab:listofpapers}, those studies~\cite{Posnett2011ASEEcologicalInference, Ray2014FSElaguageandquality, Bettenburg2015EMSElocallyglobally, Zhao2015ISTPackageMetrics, MA2016ISTNetworkMeasures, Mensah2018ISTDuplex, Jiarpakdee2019TSE, Pinzger2008FSEnetwork, Cataldo2009TSEdependencies, Shihab2011FSEhighimpact, Bird2012MSRdistributed, Bettenburg2013EMSEinteractions, McIntosh2014MSRCodeReview, YangTSE2015cohesion, Palomba2017TSEsmell} are used VIF.
+\emph{NSVIF10}, \emph{NSVIF5}, \emph{NSVIF4}, and \emph{NSVIF2.5} are based on non-stepwise VIF (NSVIF),
+% \jc{similar sentence is in the previous paragraph merge this paragraph with the previous one properly.} 
+which is a method where all features larger than a specific threshold are deleted.
+\emph{SVIF10}, \emph{SVIF5}, \emph{SVIF4}, and \emph{SVIF2.5} are variants of stepwise VIF (SVIF) 
+with different threshold values, e.g., \emph{SVIF10} means SVIF with threshold of 10.  
+In SVIF, once the VIF is calculated, the feature having a VIF value exceeding a threshold and the highest among all features is removed first. This VIF calculation is repeated until all VIF values for all remaining features are less than the threshold.
+
+For both NSVIF and SVIF, we used the threshold values of 10, 5, 4, and 2.5, respectively. We selected these threshold values in accordance with previous studies~\cite{Bettenburg2013EMSEinteractions,Shihab2011FSEhighimpact,YangTSE2015cohesion,Bettenburg2015EMSElocallyglobally,Palomba2017TSEsmell} and named NSVIF and SVIF models with each threshold value. The VIF was determined following acquisition of the coefficient of determination using the \emph{calculateRSquared} function of Weka's \emph{RegressionAnalysis} class~\cite{Hall2009WDMWEKA}. 
+ 
+%it is not to delete all features that are larger than the threshold, but to delete only the maximum value of them. 
+% This VIF calculation is repeated until all VIF values for all remaining features are less than the threshold~\jc{check if my explnation is correct.}.
+ %Here, \emph{SVIF10}, \emph{SVIF5}, \emph{SVIF4}, and \emph{SVIF2.5} had threshold values of 10, 5, 4, and 2.5, respectively~\cite{Bettenburg2013EMSEinteractions,Shihab2011FSEhighimpact,YangTSE2015cohesion,Bettenburg2015EMSElocallyglobally,Palomba2017TSEsmell}. 
+%\jc{cite weka}. %\ej{Do I need to remove this sentence?}
+% VIF에서 theshold 값들을 citation 한 논문들
+% \cite{Bettenburg2013EMSEinteractions -> We observe two variables that have a VIF greater than 10. We remove the highest one (NMSG) from the regression model and recompute the VIFs with the reduced set of variables. 
+% \cite{Shihab2011FSEhighimpact} -> we were left with five factors that all had a Variance Inflation Factor (VIF) below 2.5, as recom- mended by previous work [4]
+% \cite{YangTSE2015cohesion} -> In this study, we use the recommended cut-off value 10 to deal with multicollinearity in a regression model [59]
+% \cite{Bettenburg2015EMSElocallyglobally} -> We iteratively compute VIF measures for all variables and then remove the variable with the highest VIF value, until no variable has a VIF measure higher than 5 [10].
+%\cite{Palomba2017TSEsmell} -> 이 논문에서 R. M. O’brien, “A caution regarding rules of thumb for variance inflation factors,” Quality & Quantity, vol. 41, no. 5, pp. 673–690, 2007. [Online]. Available: http://dx.doi.org/10.1007/ s11135- 006- 9018- 6 이 논문(technical report?)을 인용했는데 거기에 보면 "Unfortunately practitioners often inappropriately apply rules or criteria that indicate when the values of VIF or tolerance have attained unaccept- ably high levels. Not uncommonly a VIF of 10 or even one as low as 4 (equivalent to a tolerance level of 0.10 or 0.25) have been used as rules of thumb to indicate excessive or serious multi-collinearity." 
+
+% \jc{if we should add RQ4 place CFS WFS paragraphs after VCRR paragraph.}
+% \emph{CFS-BestFirst} is a defect prediction model that applies the Correlation based feature selection (CFS)~\cite{Hall99correlation-basedfeature}. In Table~\ref{tab:listofpapers}, those studies~\cite{Shihab2012FSEindustrial, Lee2016TSEMIM} are used CFS.
+% %Similar to VIF, CFS which is one of the Featrue Selection methods.
+% In CFS, a subset is selected by considering features highly correlated with the class but also uncorrelated with each feature. 
+% % In \cite{Hall99correlation-basedfeature}, the author states that the term correlation is not referring specifically to classical linear correlation but referring to a degree of dependence or predictability of one variable with another. % 이 의미는 correlation이 그 strict한 식을 만족하지 않아도 된다는 말이다. 그래서 다중공선성과 관련이 없다는 증거가 되지 못한다.
+% % CFS is widely used in Defect Prediction studies~\jc{cite papers}.
+% CFS is widely used in defect prediction studies~\cite{Shihab2012FSEindustrial, Lee2016TSEMIM}. 
+% % In addition, Ghotra et al.~\cite{ghotra2017msr} recommended using CFS for feature selection as CFS leads to higher defect prediction performance than other feature selection approaches. 
+% In our experiments, we used best-first searching as a heuristic search strategy for CFS, as in Ghotra et al.~\cite{Rich:1990:AI:574820, ghotra2017msr}. 
+% Note that \emph{CFS does not perfectly remove the multicollinearity, but it only does its best to select features, which are more related with the class (i.e. response variable) and less related with other features in the selected feature group}.
+
+% \emph{WFS-BestFirst} is a defect prediction model that uses the Wrapper-based feature selection (WFS). In Table~\ref{tab:listofpapers}, this study~\cite{DAmbros2012EMSEbenchmark} is used WFS.
+% %WFS is known as a famous feature selection technique. 
+% % In \cite{Xu2016ISSREfeatureselection}\jc{do not put just paper number. Follow the stylye in the previous paragraph I wrote}, they states WFS is better then other feature selection techniques. 
+% Xu et al. previously showed that WFS is superior to other feature selection techniques~\cite{Xu2016ISSREfeatureselection}. 
+% To apply WFS, an evaluation measure and a search method must be selected. Here, AUC (Section~\ref{sec:auc}) and the best-first search method (a Weka's default option)~\cite{Rich:1990:AI:574820} were selected as the evaluation measure and search method, respectively. 
+% %Thus, we use the best first search as heuristic search strategies. 
+% %In addition, we use the AUC for evaluation measure.
+% Note that \emph{WFS is not a method for multicollinearity removal}.
+
+\emph{VCRR} is a defect prediction model that uses variable clustering and removal of redundant metrics (VCRR). 
+% In Table~\ref{tab:listofpapers}, those studies~\cite{Rajbahadur2017MSRRegression, McIntosh2017TSELongitudinal, Tantithamthavorn2018TSEClassRebalancing, Tantithamthavorn2019TSEAutomatedParameter, Thongtanunam2016ICSEowndershipcodequality} are used VCRR.
+The easiest way to detect multicollinearity is to examine the correlation between each pair of metrics. Thus, we use a variable clustering analysis~\cite{SarleTheVarclusProcedure} to construct a hierarchical overview of the correlation and remove metrics with a high correlation using Spearman rank correlation tests ($\rho$). We select $|\rho|=0.7$ as a threshold for removing highly correlated variables~\cite{Kazdin1999meanings}. 
+% We perform this analysis iteratively until all clusters of surviving variables have |p| < 0.7.
+After them, we perform Harrell Jr.'s redundancy analysis technique implemented in the \texttt{redun} function in the \texttt{rms} package to mitigate multicollinearity~\cite{Harrell2006Regression}. 
+
+\section{ Prediction Models}
+\label{mls}
+% \jc{actually we used several ML algorithms. decision tree was the represetative one. Revise this paragraph accordingly.} 
+% We use decision tree, logistic regression, random forest, and na\"{i}ve bayes for the machine learning algorithm. 
+%As mentioned in Section~\ref{predictionofmulticollinearity}, multicollinearity is not an issue when predicting. However, 
+%a large number of previous studies removed multicollinearity when building defect prediction models.  
+We construct defect prediction models using various machine learning models which were widely used in the defect prediction studies. 
+The studies in Table~\ref{tab:listofpapers} used logistic regression (LR), decision tree (DT), and random forest (RF) as defect prediction classifiers. We also select other models such as naive bayes (NB), bayes network (BN), and logistic model tree (LMT) widely used in other defect prediction studies. 
+% We use only decision tree in consideration of the cost of execution time, because random forest is essentially a collection of decision trees\
+% jc{you listed three ML algorighrms bug used two. why? is the curren reason reasonable??} .
+% a Random Forest is essentially a collection of Decision Trees. A decision tree is built on an entire dataset, using all the features/variables of interest, whereas a random forest randomly selects observations/rows and specific features/variables to build multiple decision trees from and then averages the results. After a large number of trees are built using this method, each tree "votes" or chooses the class, and the class receiving the most votes by a simple majority is the "winner" or predicted class. There are of course some more detailed differences, but this is the main conceptual difference.
+We apply Weka's default options to the prediction models~\cite{Hall2009WDMWEKA} and  
+% We use 10 $\times$ 10 fold cross-validation to verify the validity of the machine learning model. We repeat 10 fold cross-validation 10 times~\jc{redundant}. 
+use 10 $\times$ 10-fold cross-validation to evaluate the machine learning models.  
+The 10 fold cross-validation method divides a given dataset into ten folds. 
+Then, nine folds are used as training data and the remaining fold is for test data. Each fold is used as a test case. We repeated this process 10 times~\cite{ghotra2017msr}. Recent defect prediction studies also tunes model parameters~\cite{agrawal2020simpler, TantithamthavornICSE16Automated, Tantithamthavorn2019TSEAutomatedParameter}.
+% \jc{cite a recent paper}. 
+However, we did not consider parameter tuning since investigating the impact of multicollinearity to tuned models is out of the scope of this study.
+%  \jc{After submitting the paper, prepare for the replication package. Put somewhere footnote that shows the replication packaged is shared but annonymized. You would see the similar footnote in other papers.}
+% \jc{cite papers that use 10*10 CV}. 
+% To solve the data imbalance problem, we applied SMOTE to the dataset for all models~\cite{Chawla:2002:SSM:1622407.1622416}. 
+
+\section{ Evaluation}
+\label{sec:auc}
+% \jc{We need to show other evaluation measures berifly in the Result or Discussion section} We use the area under the receiver operating characteristic curve (AUC) to measure the prediction performance of approaches.
+% MCC, precision, recall, f-measure 이것도 우선 써 놓아야겠다
+We use precision, recall, f-measure, the area under the receiver operating characteristic curve (AUC), and Matthews Correlation Coefficient (MCC) to measure the prediction performance of prediction models.
+Precision is the rate of correctly predicted buggy instances among all instances predicted as buggy.
+Recall is the rate of correctly predicted buggy instances among all actual buggy instances.
+F-measure is a harmonic mean of precision and recall and widely used in defect prediction studies.
+% \cite{Lee2011FSEmicro, Rahman2013ICSEprocessmetrics, Fukushima2014:MSRemprical, Herzig2013ISSREpredicting, Jing2014ICSEdictionary}. It considers both the precision and the recall.
+AUC is known as a useful measure for comparing different prediction models.
+% \cite{Rahman2012FSERecalling, Lessmann2008TSEbenchmarking, Song2011TSEgeneral, Giger2012SESEMmethod}. 
+AUC is plotted using true positive rate (recall) and false positive rate by changing different prediction thresholds. % \cite{Rahman2012FSERecalling}. 
+Therefore, AUC is an appropriate measure for comparing the overall prediction performances of different models. 
+% Since f-measure is strongly influenced by class imbalance and prediction threshold, it is difficult to fairly compare prediction models \cite{Rahman2012FSERecalling}. 
+% For this reason, AUC is also widely used for the defect prediction literature \cite{Rahman2012FSERecalling, Lessmann2008TSEbenchmarking, Song2011TSEgeneral, Giger2012SESEMmethod}. 
+% The higher AUC represents better prediction performance \cite{Rahman2012FSERecalling}.
+MCC measures quality of binary classifications with values in [-1; 1]. 1 indicates a completely correct binary classifier but -1 indicates a completely wrong binary classifier.
+% AUC is known to be a sound measure when comparison measure for different models~\cite{Rahman2012FSERecalling}, and is computed by plotting true positive rates (recall) and false positive rates of different prediction thresholds~\cite{Rahman2012FSERecalling}. 
+% Thus, AUC is a suitable comparison measure for the overall prediction performances of different models. Note that it is difficult to fairly compare predictability models using F-measure, because it is severely influenced by class imbalance and prediction threshold~\cite{Rahman2012FSERecalling}. 
+% Therefore, AUC is extensively used in the defect prediction literature~\cite{Rahman2012FSERecalling}. 
+% A higher AUC value indicates superior prediction performance~\cite{Rahman2012FSERecalling}.
+We use two statistical techniques to analyze the results of the experiment. In particular, we conduct at the average level of 45 datasets. We conduct the Wilcoxon signed-rank test ($p<0.05$) when comparing two approaches to verify that results indicate a statistically significant difference \cite{Demsar:2006:SCC:1248547.1248548}. 
+% In addition, we conduct the Friedman test (p<0.05) with the Nemenyi post-hoc test when comparing 11\jc{12?} approaches to verify if rankings of approaches are different with statistically significance \cite{Demsar:2006:SCC:1248547.1248548}. 
+% We also conduct a Friedman test ($p<0.05$) with the Nemenyi post-hoc test when comparing the 13 considered models to verify statistically significant differences in the approach ranking~\cite{Demsar:2006:SCC:1248547.1248548}. 
+We additionally obtain the Cliff's $\delta$, which is a non-parametric effect size measure that quantifies the amount of difference between two groups of observations. 
+To assess the magnitude of the difference, we use the thresholds provided by Romano et al.~\cite{romano2006should}, i.e., $|\delta|<0.147$ is "negligible", $|\delta|<0.33$ is "small", $|\delta|<0.474$ is "medium", and $|\delta| \geq 0.474$  is "large".
+% \jc{cite and explain about Cliff's delta in detail.}.
+
+\clearpage

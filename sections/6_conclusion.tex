@@ -1,0 +1,10 @@
+\chapter{Conclusion}
+\thispagestyle{fancy}
+\label{sec:conclusion}
+\bigskip In this study, we investigated the multicollinearity problem for defect prediction in detail. We considered the multicollinearity problem both theoretically and empirically. Theoretically, multicollinearity is less detrimental if the purpose of an analysis is simply prediction.
+% \jc{is this correct sentence?? we need to remove multicollinearity when conducting regression analysis but not need to remove when predicting a dependent variable??}
+% we mentioned that when conducting a multiple regression analysis, it is not necessary to remove multicollinearity if we predict a dependent variable.
+We conducted 1,485,000 predictions based on 11 different models to investigate the effect of multicollinearity on 45 datasets from the AEEEM, Relink, JIT\textunderscore QA, NASA, and PROMISE groups. Our experimental results show no clear positive performance impact of PCA, VIF, and VCRR applications.
+% In addition, in our comparison of 11 approaches, the best performance with statistical significance was achieved by the \emph{CFS-BestFirst}, which does not perfectly treat multicollinearity.
+Based on these observations, we guide considering the research objectives first before treating the multicollinearity of datasets for defect prediction studies. When analyzing the impact of metrics, multicollinearity must be removed. However, removing multicollinearity is not necessary to improve defect prediction performance.
+\clearpage

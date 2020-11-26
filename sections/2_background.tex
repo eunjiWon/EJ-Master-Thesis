@@ -1,0 +1,300 @@
+\chapter{Background and Related Work}
+\thispagestyle{fancy}
+\label{sec:background}
+% In this section, we first present a theoretical foundation for the multicollinearity.
+% \jc{multicollinearity `issue' is repeating. Since it is mentioned as an issue at the first place, use just multicollinearity without `issue' for later sentences.}
+% We then present a literature survey of defect prediction studies that considering the multicollinearity, which was performed using the established theoretical foundation. We summarize the methods and motivations of the considered studies as regards the multicollinearity. Using both the theoretical foundation and survey, we find common misconceptions concerning the multicollinearity problem in existing defect prediction studies.
+\bigskip This section examines common misconceptions about the handling multicollinearity in existing defect prediction studies. To that end, a literature survey of defect prediction studies is presented, taking into account the multicollinearity conducted using eight actions. We also present a theoretical foundation for the multicollinearity to investigate when multicollinearity is a problem and when it is not.
+
+\section{ Existing actions for handling multicollinearity}
+\label{eightactions}
+%\hfill\break
+% \jc{it could be great to show a overview figure. You may refer to the micro interaction paper of the mine where shows the defect prediction process. In this paper, we need to show defect prediction study process.}
+%\jc{new paragraph}
+Figure~\ref{fig:eight_actions} shows the process of defect prediction studies from our survey that have handled multicollinearity. 
+In these defect prediction studies, the first step is to collect data including both metrics and labels for data instances. 
+Then, they investigate the correlation of metrics and if multicollinearity is found during data preprocessing, most study would remove it. 
+After building the defect prediction model, they evaluate the performance or interpret the model according to their research purposes. 
+
+%\jc{second paragraph}
+In this process, we first analyze the existing actions for handling multicollinearity in previous studies based on which we then summarize eight categories of actions as follows.
+%Figure~\ref{fig:eight_actions} shows eight actions in the process of defect prediction studies.
+% \song{I have ``textit'' these eight actions, may need to update through the paper}
+\begin{itemize}
+\item \textit{ICID}: \textbf{I}nvestigation of the \textbf{C}orrelation between the \textbf{I}ndependent variables (metrics) and the \textbf{D}ependent variable (label) using a correlation analysis method such as the Spearman or Pearson correlation.
+\item \textit{ICI}: \textbf{I}nvestigation of the \textbf{C}orrelation between \textbf{I}ndependent variables using the Spearman or Pearson correlation. \textit{ICI} can be used to check the multicollinearity of independent variables.
+\item \textit{RM}: \textbf{R}emoval of \textbf{M}ulticollinearity using various reduction methods (e.g., VIF, PCA, VCRR, and manual feature selection).%\jc{should be manual? check globally} %\jc{what action is it?}
+\item \textit{CP}: \textbf{C}omparison of the \textbf{P}erformances of defect prediction models based on various approaches to improving the model performance. %\jc{was hypothesis explained before? Compare the performances of defect predicton models based on various approaches? Need to fix for CI beolw.}
+\item \textit{CI}: \textbf{C}omparison of defect prediction model \textbf{I}nterpretations based on various approaches, to provide the correct model interpretation.
+\item \textit{AP}: \textbf{A}nalysis of proposed independent variables by building prediction models and evaluating the model \textbf{P}erformance (e.g., precision, recall, and AUC).
+\item \textit{AI}: \textbf{A}nalysis of \textbf{I}mpact of proposed independent variables (e.g., coefficient of determinant or goodness of fit of a regression model).
+\item \textit{AIP}: Implementation of an \textbf{AI} action after evaluating the \textbf{P}erformance of a model to check its accuracy and stability (e.g., reporting the model AUC and then analyzing the metric impact using ANOVA).
+\end{itemize}
+%\rev{In this study, we gain insight into the overall trend and misconception when handling multicollinearity by looking at what actions each study carried out.}
+
+% \jc{I think this subection should be under Section 2.2 as it is for the survey. do you agree?? No need to put this as section but put this after the first paragraph of section 2.2.}
+%\hfill\break
+% \jc{What do you want to analyze and why? Briefly explain this before the steps.}
+%In defect prediction domain, researchers analyze the performance of a predictive model they have built, and/or analyze the impact of a metric they have discovered.
+%We defined the following common steps by which researchers analyze their defect prediction studies. 
+% We summarized eight actions implemented in defect prediction studies with regard to multicollinearity.
+%  to examine how the existing studies have handled multicollinearity in what context.
+
+We defined these eight actions by largely considered the following two criteria. 
+%\rev{defect prediction studies using one or both styles.}
+%\song{'both styles' means?} 
+% To help summarize these actions, we considered defect prediction studies in the following two styles. %\song{does this mean we ignore other styles?}  
+First, guidelines are developed to improve model performance and correct model interpretation by comparing the performance or interpretation of existing approaches. %\song{what do we mean "by comparing existing approaches"?}  
+Second, new metrics or defect prediction models are suggested. 
+For both criteria, to train a defect prediction model, a training dataset consisting of software metrics and labels is required. Software metrics indicate the code complexity and development process, while labels represent the defect-proneness or defect counts of software artifacts. 
+%\rev{Thus, various analyses involving metrics and/or labels were widely conducted in previous defect prediction studies.}
+
+% \song{Do we really need these two examples? Cause the two criteria are pretty clear.}
+For example, McIntosh et al.~\cite{McIntosh2017TSELongitudinal} adopted the first style. 
+They provided guidelines to avoid misleading performance and help the interpretation of just-in-time (JIT) defect prediction models with system evolution.
+%When building JIT models, they dealt with the multicollinearity issue.
+Specifically, they first investigated code change metrics using the Spearman correlation and then removed the multicollinearity using VCRR.
+% \texttt{redun} function of the \texttt{rms} R package.\song{do we need to give too much details here?} 
+% They constructed a hierarchy overview among the metrics using a variable clustering analysis to select one metric from the sub-hierarchy. They also removed redundant metrics using  function in \code{redun} function in the \code{rms} R package. 
+To address the potential loss of predictive power over time exhibited by JIT models, they evaluated their model performance using AUC and Brier score. To investigate whether the code change metric importance fluctuated from period to period, they computed the impact of each code change metric on the JIT-model explanatory power.
+% To address whether the JIT models lose predictive power over time or not, they evaluated the performance of model using AUC and Brier score. In addition, to investigate whether the importance of code change metrics fluctuate from period to period or not, they computed the impact that each code change metric has on the explanatory power of the JIT models.
+
+Zimmermann et al.~\cite{Zimmermann2008ICSEnetwork} adopted the second style and proposed to use network measures on subsystem's dependency graphs to improve defect prediction. %proposed application of network analysis to dependency graphs. 
+To examine whether network measures correlate positively with the number of defects, they conducted Pearson and Spearman correlations between each network measure and the number of defects. 
+To analyze their metrics, they computed the $R^{2}$ and adjusted $R^{2}$ values by constructing a multiple linear regression model. 
+They also measured the prediction performance in terms of precision and recall by constructing a logistic regression model.
+To remove multicollinearity, They applied PCA to metrics used for model constructions.
+
+%We summarized the following eight actions based on the examined defect prediction studies:
+
+%\rev{In the next sections, we look at what multicollinearity is theoretically and why it is problematic or why not. Then, we report the literature survey based on the above eight actions.}
+
+\section{ Multicollinearity}
+\label{multicollinearity}
+Multicollinearity is a phenomenon in which explanatory variables are linearly correlated. Multicollinearity exists when an explanatory variable can be expressed by a linear combination of other explanatory variables~\cite{gujarati2009basic}, as detailed below.
+Assume a $k$-variable linear regression model is given as follows:
+\begin{equation}
+    Y_i = \beta_0 + \beta_1{X_1}_i + \beta_2{X_2}_i + \cdots + \beta_k{X_k}_i + u_i 
+\end{equation}
+where $ \beta_1, \beta_2, \cdots, \beta_k$ are constants, $X_1, X_2, \cdots, X_k$ are explanatory variables of the $ k $-variable regression; $i$ is the $i$th observation of $X$ and $Y$; and $u_i$ is a stochastic error.
+The multicollinearity phenomenon satisfies the following condition:
+\begin{equation}
+    \lambda_1{X_1}_i + \lambda_2{X_2}_i + \cdots + \lambda_k{X_k}_i + v_i = 0 
+\end{equation}
+where $\lambda_1, \lambda_2, \cdots, \lambda_k$ are constants and $v_i$ is a stochastic error. Further, $\lambda_1, \lambda_2, \cdots, \lambda_k$ are not simultaneously 0.
+
+\section{ Reason why multicollinearity is problematic in terms of interpretation} % 이 부분 직관적으로만 설명하기. 너무 구체적으로 하지 말고
+\label{mathematicalreason}
+% \hfill\break
+% \song{we have run out space, this section could be removed, and we could briefly summarize the problematic of multicollinearity, as this is not our main contribution.}
+The presence of multicollinearity in a statistical or data-mining analysis is problematic because it affects the precision of the estimated coefficients of the explanatory variables, as it inflates their variance~\cite{gujarati2009basic}. The variance of a partial regression coefficient of $X_j, var(\hat{\beta}_j)$, in a $k$-variable linear regression model is written as
+\begin{equation}
+    var(\hat{\beta}_j) = \frac{\sigma^2}{\Sigma {x_{ji}}^2} ( \frac{1}{1-R_j^2} )
+\end{equation}
+where $\sigma^2$ is the constant variance of $u_i, {x_{ji}} = {X_{ji}} - \overline{X_j}$, and $R_j^2$ is the goodness of the fit in the regression of $X_j$ on the other $X$s.
+For greater multicollinearity between $X_j$ and the other $X$s gets higher, $R_j^2$ becomes closer to 1. Therefore, $var(\hat{\beta}_j)$ increases as there is stronger multicollinearity between $X_j$ and other $X$s. Large variance of the estimated coefficient indicates a lower-accuracy estimation.
+
+Large variance has other side-effects~\cite{gujarati2009basic}. First, it widens the confidence interval for $\beta_j$ as indicated by the following equation, such that the acceptance likelihood for false hypotheses is increased (this is known as a "Type II error"): 
+\begin{equation}
+    95\% \textrm{ confidence} \textrm{ interval} \textrm{ for } \beta_j = \hat{\beta}_j \pm 1.96se(\hat{\beta}_j)
+\end{equation}
+where $se(\hat{\beta}_j)$ is the standard deviation of $\hat{\beta}_j, se(\hat{\beta}_j) = \sqrt{var(\hat{\beta}_j)}$.
+Second, the estimated $t$-ratio is decreased; thus, $t$-test failure is more likely, with the significance of the explanatory variable $X_j$ then being unrecognized. The $t$-ratio is expressed as
+\begin{equation}
+    t\textrm{-ratio for } \beta_j = \frac{\hat{\beta}_j}{se(\hat{\beta}_j)}
+\end{equation}
+Finally, another major problem is that the estimation is unstable because the estimation results are very sensitive to changes in the dataset, even if those changes are very small.
+
+\section{ Reason why multicollinearity is not problematic in terms of prediction}
+\label{predictionofmulticollinearity}
+% \hfill\break
+Multicollinearity is less detrimental than expected if the analysis is for prediction only~\cite{gujarati2009basic}. Despite the presence of multicollinearity, the ordinary least squares estimator $\hat{\beta}_j$ is still the best linear unbiased estimator. Moreover, the overall explanatory power, $R^2$, of this model is superior to those of revised models that omit some explanatory variables for multicollinearity removal. Further, if the $t$-test results for all estimators are statistically significant, the presence of multicollinearity is not seriously problematic as regards prediction. Therefore, the "do-nothing" strategy is often suggested if the underlying model is reliable~\cite{gujarati2009basic}.
+
+More importantly, under-specification bias, through which relevant variables are excluded, is considerably more detrimental than over-specification bias, through which unnecessary variables are included, because we cannot obtain unbiased and consistent estimators from an under-fitted model~\cite{gujarati2009basic}. Therefore, researchers should carefully determine whether multicollinearity removal is really necessary and beneficial for the purpose of their research. %~\jc{can you cite?}. 
+% \jc{is this sentence necessary?}Finding a good model 
+%(i.e., selecting precise explanatory variables) 
+% by referencing both theory and empirical testing results is highly important.
+
+% \jc{also properly cite sentences}
+The multicollinearity problem mainly arises when interpreting metrics in a multivariate linear regression model~\cite{gujarati2009basic}. However, even when other models (e.g., random forest, decision tree, and logistic regression) are used, there may be problems with interpretation if metrics are linearly correlated. 
+For example, in the case of the decision tree, multicollinearity is only problematic when estimating the importance of each feature to the trees.
+Compared to the decision tree, the random forest is not problematic since when interpreting the model, the random forest model uses bootstrap sampling and feature sampling. 
+% therefore, multicollinearity is not a problem as the decision tree when interpreting the model.
+However, when considering the performance, we do not have to worry about multicollinearity of those models.
+
+% This is because the random forest selects a different set of features for different models.
+
+% \section{Existing approaches to resolving the multicollinearity issue}
+% \label{existingapproaches}
+% \hfill\break
+% % Is it necessary section?
+% Various methods have been devised to eliminate multicollinearity from models. Below, we discuss two methods frequently applied in data-mining analysis.
+
+% First, PCA, a representative feature extraction technique, is generally adopted to mitigate the problem of multicollinearity issue among features (i.e., explanatory variables)~\cite{Jolliffe2011}. This method transforms an original set of features that are possibly correlated one another, into a new set of linearly orthogonal principal components. For a data matrix $X$, which has a column-wise zero mean and $p$ columns of features, the transformation is defined as:
+% \begin{equation}
+%     t_{\text{k(i)}} = x_{\text{(i)}} \cdot w_{\text{(k)}} \textrm{ for } i = 1, \cdots, n \textrm{ }\textrm{ } k = 1, \cdots, l 
+% \end{equation}
+% where $ x_{\text{(i)}} $ is a row vector of $ X $ and $ w_{\text{(k)}} $ is a $ p $-dimensional vector of weights. There are fewer features in this new set than in the original set, although it incorporates most of the covariance of the original feature set and provides sufficient information for analysis. The disadvantage of PCA is that the impact of the original features on the model cannot be traced~\cite{Jolliffe2011}.
+
+% The second method discussed here employs the VIF, which is a widely used feature selection technique to remove multicollinearity. The VIF method monitors the variance inflation speed as follows~\cite{gujarati2009basic}:
+% \begin{equation}
+%     VIF_j = \frac{1}{1-R_j^2}
+% \end{equation}
+% If there is no multicollinearity among the explanatory variables, the computed VIF is 1. If a linear correlation exists between ${X_{ji}}$ and the other variables, both $R_j^2$ and $VIF_j$ increases. Gujarati~\cite{gujarati2009basic} suggested the following rule of thumb: if the VIF of a variable exceeds 10, the variable is considered as a candidate for removal to reduce the overall model multicollinearity in the model.\footnote{VIF$>$10 is equivalent to $R_j^2$ exceeds 0.9.} 
+% The VIF is also a multicollinearity detection tool in a situation where three or more explanatory variables are linearly related, in which case pairwise correlation cannot clearly state the multicollinearity. 
+
+% Lastly, Correlation-based Feature Selection (CFS) is a heuristics algorithm to address the correlation among features~\cite{Hall2003TKDEfeatureselection}.
+% Its evaluation function to choose a feature is 
+% \begin{equation}
+%     M_s = \frac{k\underline {r_{\text{cf}} } } {{\sqrt{k+k(k-1)\underline {r_{\text{ff}} }  }}}
+% \end{equation}
+% where $ M_s $ is heuristic merit of a feature subset $ S $, which has $ k $ features, $ \underline {r_{\text{cf}} } $ is the mean feature-class correlation and $ \underline {r_{\text{ff}} } $ is the average feature-feature inter-correlation.
+% Note that \emph{CFS does not perfectly remove the multicollinearity, but it only does its best to select features, which are more related with the class (i.e. response variable) and less related with other features in the selected feature group}.
+
+\section{ Multicollinearity in Defect Prediction}
+\label{sec:survey}
+Based on the above eight actions and theoretical foundation, we conducted a literature survey to investigate the manner in which the multicollinearity was handled in defect prediction studies.
+% We focused on full papers from four major software engineering venues such as ICSE, FSE, TSE, and EMSE. We set the search period in recent 1\jc{10? 11? 12?} years (2008 to 2019). %\jc{need to be updated as 12 years to 2019?}. 
+We set the search period to a recent 13-year period (2008 to 2020) and used major academic search engines, i.e., Google Scholar, ACM Digital Library, and IEEE Xplore Digital Library. The search keywords were "collinearity", "multicollinearity", "defect", "bug", and "prediction". We found 47 full papers from major software engineering conferences, i.e., the International Conferences on Software Engineering (ICSE), Foundations of Software Engineering (FSE), Automated Software Engineering (ASE), and Mining Software Repositories (MSR), as well as journals, i.e., IEEE Transactions on Software Engineering (TSE), Empirical Software Engineering (EMSE), Information and Software Technology (IST) and Automated Software Engineering (AUSE) journals.
+% We focused on full papers from four major software engineering venues such as ICSE, FSE, TSE, EMSE, MSR, ASE, and ASE journal. 
+
+
+Based on the theoretical foundation given in Section~\ref{sec:background}-\ref{predictionofmulticollinearity}, multicollinearity is a problem and must be removed in the context of model interpretation. However, multicollinearity removal is not necessary for model prediction. Thus, for the \textit{CI}, \textit{AI}, and \textit{AIP} actions, multicollinearity should be removed but, for the \textit{CP} and \textit{AP} actions, multicollinearity removal is unnecessary.
+% Thus, in CI, AI, and AIP action, multicollinearity should be removed. However, in CP and AP, it is not necessary to remove multicollinearity. 
+%\jc{Put Section before the section number like this}.
+Table~\ref{tab:listofpapers} presents a list of the papers included in our survey.
+% We group the papers by which have the same steps according to Section~\ref{commonstepstoanalyze}\jc{this sentence is not clear. revise.}.
+% We group the papers along with the actions in Section~\ref{eightactions}.
+We divided the studies into three groups according to their use of one or both of the two styles employed in previous defect prediction studies noted in Section~\ref{sec:background}-\ref{eightactions}.
+% \jc{do not need to list all categories here as they are in the table. You may one of category as an example while explaining about the table in the next paragraph.}
+% \jc{This paragraph need to be revised alot. Check sections that explain tables in my papers. Start with a main sentence of the paragraph: Table xx lists the papers based on our paper categories...}
+% Group column shows groups of the papers list\jc{ackward sentence. groups colum shows groups...like A shows A... revise this and others. The first column shows...}.
+% The first column shows the groups of the paper list.
+% \jc{can't be plural noun + singular noun. Just `the paper list'}.
+% We have five groups.
+% \jc{plural noun are not followed by singular noun} 
+% For example, papers in Group 1 consist of Step 1, 2, 3, and 4. 
+% Especially, papers in Group 7 mention about multicollinearity but no steps were discussed in their analysis.
+% Category 6 belongs to unique papers\jc{This category is unique. Explain about this category in detail. For example, something like, papers in Category 6 mention about multicollinearity but no steps were discussed in their analysis.}.
+% The second column shows the paper number in the reference list for the surveyed papers. 
+% Metric Analysis column shows whether the study conducts the metric analysis. 
+% This is divided into Step 1 and Step 2. 
+% The column, Step 1, indicates whether the relationship between the label and the metrics is checked\jc{analized? You used `check' a lot for many different situations. Use more academic terms like investigate, analyze,...}. 
+% Step 2 column checks the relationship among the metrics and verifies that each metrics have its own contribution part that explains the label. 
+% We consider \jc{that a paper follows} Step 2 only when they directly analyze the correlation between metrics in the paper or when using the metrics from another study where the correlation between metrics were already analyzed. 
+%When citing the paper, Step 2 is accepted only when the dataset is the same, not just the metric of the paper.
+The `RM' column shows how to remove multicollinearity.
+The `Actions' column shows the actions that were conducted in each paper in order. % in the analytical step that the study has been through. 
+In the table, the ``RM()'' notation indicates that multicollinearity was removed from a dataset during model construction to implement the action in parentheses. For example, ``RM(CI)'' indicates that a \textit{CI} action was conducted after multicollinearity removal from a dataset.
+If multiple actions are included in the parentheses, those actions were performed using a single model that removed the multicollinearity. For example, ``RM (CP, CI)'' indicates that the relevant study evaluated and interpreted defect prediction models constructed following multicollinearity removal from a dataset.
+% From the theoretical foundation presented in Section~\ref{predictionofmulticollinearity}, multicollinearity removal for prediction only is unnecessary. Thus, for a study targeting performance evaluation by constructing a prediction model with action such as CP or AP following multicollinearity removal, the label is formatted in bold, e.g., \textbf{RM(CP)} or \textbf{RM(AP)}.
+% As mentioned in Section~\ref{predictionofmulticollinearity}, we mark the actions in bold font when it is not necessary\jc{how we can deicde if it is necessary or not?} to remove multicollinearity. For example, if there is CP or AP action in parentheses of RM action, we mark it in bold letters. Because CP and AP are actions that evaluate performance by building prediction model, it does not have to remove multicollinearity.\jc{This is our conclusion and guideline. it woud be good to mention this in Section 5.}
+% \jc{This is not an email so do not need to use `you' in the paper} 
+% Step 4 column shows whether the study made a prediction. We do not consider analysis to find the impact of the metrics as Step 4.
+% We consider that a paper follows Step 2 only when they directly analyze the correlation between metrics in the paper or when using the metrics from another study where the correlation between metrics was already analyzed. 
+% In addition, we consider that a paper follows Step 4 only when the study made a prediction. 
+% We do not consider analysis to find the impact of the metrics as Step 4. 
+% For Step 4, we do not consider analyzing the impact of the independent variables\jc{it is confusing you said step 4 also canalyze the impact of independent varuables. which one is correct?? Udapte as you surveyed.} but consider making a prediction in the paper.
+% \ej{merge two sentences}
+% \jc{carefully revise sentences entire paragraphs. You may get some hints from my change by using word-diff.}
+
+\subsection{Group 1 (Provide guidelines)} 
+% \hfill\break
+The studies collected in Group 1 provide guidelines related to improving model performance and correctly interpreting the models by comparing existing approaches. Therefore, studies in which \textit{CP} or \textit{CI} was implemented were classified into Group 1.
+%\jc{how the papers were ordered in the table? by publication year? it might better to sort them by the paper no.} 
+%Group 1 does not perform the ICID action except for the studies of Kamei et al.~\cite{Kamei2016EMSEjit} and Zhang et al.~\cite{Zhang2017TSEaggregate}. 
+There were two studies~\cite{Rahman2012FSERecalling, Rahman2014ICSEpredictionfinder} in Group 1 in which multicollinearity was not deliberately removed to improve the prediction performance. 
+% In addition, Zhang et al.~\cite{Zhang2017TSEaggregate} is the only one who uses PCA in Group 1. 
+
+Among these studies, Rahman et al.~\cite{Rahman2012FSERecalling} employed all variables without considering multicollinearity because they measured predictive performance. In the discussion of that work, they constructed eight single variable models to check that each variable contributed to the good quality of the cross-project performance, which was assessed in terms of cost-effectiveness. Note that we do not consider that study as having implemented the AP action, because a single-variable model is not a typical regression model with multiple independent variables.    
+
+\input{tables/1_listofpapers_update}
+
+Unlike the multicollinearity removal from a defect prediction model, Liparas et al.~\cite{Liparas2012ASEJournalMahalanobis} considered multicollinearity in the context of the Mahalanobis-Taguchi-Gram-Schmidt method, which is used to calculate the Mahalanobis distance. Thus, we do not consider that study as having implemented the RM action.
+
+% Rahman et al.~\cite{Rahman2013FSEbias} wanted to use as many variables to obtain the best prediction model possible. Due to adding many variable, they removed multicollinearity using Ridge regression. However, in this study, they did not mention why multicollinearity was a problem. They even did not conduct CI action.%\jc{Readers may wonder why CI action is mentioned here. It would be good to explain why removing multicollineariy is related to CI in secton 2.2.1?}
+Rahman et al.~\cite{Rahman2013FSEbias} removed multicollinearity from their dataset without investigating the correlations among the independent variables (\textit{ICI} action) and without investigating the possible effects of multicollinearity in depth. They wanted to use the maximum number of variables to obtain the best-possible prediction model. As use of many variables may induce multicollinearity, they simply removed the multicollinearity using ridge regression.
+
+Posnett et al.~\cite{Posnett2011ASEEcologicalInference}, Ray et al.~\cite{Ray2014FSElaguageandquality}, Kamei et al.~\cite{Kamei2016EMSEjit}, Mensah et al.~\cite{ Mensah2018ISTDuplex}, and Rajbahadur et al.~\cite{Rajbahadur2017MSRRegression} also removed multicollinearity from their datasets. However, they did not discuss the possible effects of multicollinearity in depth.
+% \ej{I think the sentence is too ambiguous. e.g., Is it about the process of removing multicollinearity or about the reason why they remove multicollinearity? I think it would be better to clarify they did not mention why multicollinearity is an issue.}
+
+Yang et al.~\cite{Yang2016FSEunsupervised} investigated the predictive power of simple unsupervised models in effort-aware JIT defect prediction, compared to those of the state-of-the-art supervised models. They implemented the EALR model of Kamei et al.~\cite{Kamei2013TSEjit} and they removed the multicollinearity in the same manner as those Kamei et al.~\cite{Kamei2013TSEjit}.
+
+Jiarpakdee et al.~\cite{Jiarpakdee2019TSE} investigated the impact of correlated metrics on defect model interpretation. They compared the interpretation and performance of models from which the multicollinearity had been removed with models retaining their multicollinearity. To experimentally verify the impact of correlated metrics on prediction-model interpretation and performance, the multicollinearity was removed from the prediction model as a baseline using VC and VIF. 
+In RQ4, they investigated whether removing all correlated metrics impact the performance of defect models or not. They found no significant difference in the experiment but concluded that it was better to remove highly correlated metrics. 
+
+In addition, Jiarpakdee et al.~\cite{Jiarpakdee2020EMSEautomated} investigate 12 automated feature selection techniques on the interpretation of various dimensions. They noted that the best subset of the metrics that should be included in the study depends on the goals of the study. For example, if the goal of the study was to achieve the highest predicted performance, resources can be prioritized in improving model performance regardless of the correlation between metrics. 
+Note that, unlike Jiarpakdee et al.~\cite{Jiarpakdee2019TSE, Jiarpakdee2020EMSEautomated}, we further analyzed the impact of multicollinearity on prediction performance. We also analyzed the effects of more various multicollinearity removal techniques than they did and used more datasets, machine learning models, and statistical techniques.
+
+% Therefore, the "RM(CP)" label was applied to this study but was not formatted in bold.
+% that have been removed multicollinearity with those that have not. 
+%In order to verify their hypothesis\jc{What is their hypothesis, just mentioning it here would be good.}, the experimental setup should remove multicollinearity in the predictive model\jc{did authors remove multicollineariy in their study?}. 
+% In order to verify correlated metrics affect the interpretation and performance of prediction models, the experimental setup should remove multicollinearity in the prediction model as a baseline. %\jc{did authors remove multicollineariy in their study?}. 
+% Therefore, in this case, CP is in parentheses of RM, but not in bold letters.
+
+Kondo et al.~\cite{Kondo2019EMSEreduction} studied the impact of eight feature reduction techniques designed to solve the problem of multicollinearity and the curse of dimensionality on the performance and the performance variance. In this context, multicollinearity was mentioned.
+
+Yang et al.~\cite{Yang2018TRRidge} studied both ridge and lasso regression models for cross-version defect prediction to improve performance for multicollinearity problems. As a result, they observed ridge regression can achieve better results than linear regression. However, they also found performance of ridge regression worse than random forest model.
+%In addition, they research on software defect prediction for the ranking task instead of classification task, they adopt the CLC and FPA instead of recall, f-measure, or other classification indicators.
+
+% Discussion about handling multicollinearity in Group 1
+Unlike \textit{CP}, \textit{CI} is an action that provides guidelines for correct model interpretation and, therefore, requires multicollinearity removal.
+%\jc{why? discussing about this can be done in section 2.2.1}.
+In addition, if both \textit{CI} and \textit{CP} are implemented using one model, i.e., the case of RM(CP, CI), it is necessary to isolate the model to achieve more accurate results. However, removing multicollinearity for \textit{CI} to interpret the model is not a major error. However, it would be preferable to separate the models in that case (i.e., RM(CI), CP, for example), to achieve more accurate results.
+
+In some of the Group 1 studies,
+% \ej{should we cite the paper here?}\jc{no need now}
+multicollinearity was removed without \textit{ICI} and detailed discussion of the possible effects of this multicollinearity. Note that blind removal of multicollinearity without discussion should be avoided. 
+
+\subsection{Group 2 (Suggest new metrics and models)} 
+% \hfill\break
+The studies in Group 2 suggest new metrics or new types of defect prediction model. Therefore, studies in which \textit{AP}, \textit{AI}, or \textit{AIP} were performed are assigned to Group 2. 
+
+Among them, Pinzger et al.~\cite{Pinzger2008FSEnetwork} reported that, for AP Implementation, the multicollinearity problem was resolved using PCA. This is because the target model is unreliable as regards interpretation of the importance of an independent variable in the regression model. However, those researchers did not interpret the model, and only measured the model performance. For the AI action, they used VIF for multicollinearity removal. This is because interpretation of model results using PCA is difficult. 
+
+Nagappan et al.~\cite{Nagappan2008ICSEorg} did not directly reported implementation of the \textit{ICI} action, but they did report the correlation between metrics by quoting an extended version of this paper.
+
+Bird et al.~\cite{Bird2011FSEdonttouch} did not discuss the possible effects of multicollinearity in depth and reported the correlation between metrics by quoting other papers. Thus, we regard that study as having \textit{ICI} action.
+
+Unlike other studies, in which the Spearman or Pearson correlation was typically used to implement the \textit{ICID} action, Meneely et al.~\cite{Meneely2011FSEmanpower} used simple linear regression to measure linear relationships between independent and dependent variables for \textit{ICID}. In addition, they used the Pearson correlation for \textit{ICI}.
+
+Chen et al.~\cite{Chen2012MSRExplaining}, McIntosh et al.~\cite{McIntosh2014MSRCodeReview}, Lee et al.~\cite{Lee2016TSEMIM}, and Shang et al.~\cite{Shang2015EMSElog} provided no detailed discussion of the possible effects of multicollinearity, even when removing the multicollinearity from their datasets. Shang et al.~\cite{Shang2015EMSElog} did not directly report implementation of the \textit{ICI} action, but they did cite another study in which that action was implemented. 
+
+% Bird et al.~\cite{Bird2012MSRdistributed} stated that in words alone\jc{in words alone? what does this mean?} some independent or control variables may be highly correlated but did not report direct results. Thus, we do not consider that work as implementing ICI.
+Bird et al.~\cite{Bird2012MSRdistributed} stated that some independent/control variables may be highly correlated but did not report direct results. Thus, we do not consider that work as implementing \textit{ICI}.
+% Lee et al.~\cite{Lee2016TSEMIM} did not mention why multicollinearity is dangerous. Unlike other studies, this study conducted ICID action last.
+
+Kondo et al.~\cite{Kondo2020EMSEContext} proposed context metrics defined as the number of words/keywords in the context lines. 
+% To analyze their metrics, they compared the performance of using their context metrics, traditional code churn metrics, their extended context metrics, and combination metrics. 
+In RQ2, they use the change metrics of Kamei et al.~\cite{Kamei2013TSEjit} to compare with the context metrics.
+When using the change metrics, they followed the same preprocessing of Kamei et al.~\cite{Kamei2013TSEjit}.
+
+% Discussion about handling multicollinearity in Group 2
+For \textit{AI} and \textit{AIP}, any multicollinearity should be removed as an inaccuracy when interpreting the model. However, for \textit{AP}, multicollinearity removal is unnecessary, because the purpose is to analyze the metrics by evaluating the model performance.
+
+
+\subsection{Group 3 (Suggest new metrics and models, and provide guidelines)} 
+% \hfill\break
+The studies classed as Group 3, `Suggest new metrics and provide guidelines'. 
+Among them, D'Ambros et al.~\cite{Ambros2010MSRExtensiveComparison} presented a benchmark for defect prediction, and they also proposed new metrics. They used PCA to remove multicollinearity.
+%D'Ambros et al.~\cite{DAmbros2012EMSEbenchmark} is an extension of D'Ambros et al.~\cite{Ambros2010MSRExtensiveComparison}.
+Initially, D'Ambros et al.~\cite{Ambros2010MSRExtensiveComparison} used PCA, but in the extended journal paper of D'Ambros et al.~\cite{DAmbros2012EMSEbenchmark} they used Wrapper-based feature selection (WFS).
+% \jc{WFS full name is provided somewhere?}. 
+This was because Hall et al.~\cite{Hall2003TKDEfeatureselection} performed an extensive comparison of attribute selection techniques and found that PCA was among the worst performers. Additionally, D'Ambros et al.~\cite{DAmbros2012EMSEbenchmark} also compared the performance of PCA and WFS and found the latter to be superior.
+The multicollinearity treatments reported in the studies of Group 3 are identical to those of Groups 1 and 2.
+
+% Conclusion paragraph
+\subsection{Summary} 
+% Above, we reported the styles used to handle multicollinearity in the studies assigned to the three groups. 
+From the theoretical foundation presented in Section~\ref{sec:background}-\ref{predictionofmulticollinearity},
+% \jc{II-B2 or II-B?}
+multicollinearity removal for prediction only is unnecessary. However, we found studies targeting performance evaluation by constructing a prediction model with action such as \textit{CP} or \textit{AP} following multicollinearity removal.
+% \textst{, e.g., RM(CP) or RM(AP).}
+For example, in Table~\ref{tab:listofpapers}, we found 23 out of 47 papers removed multicollinearity before measuring prediction performance. There were also 10 studies that did not discuss why multicollinearity is a problem~\cite{Posnett2011ASEEcologicalInference, Rahman2013FSEbias, Kamei2016EMSEjit, Rajbahadur2017MSRRegression, Mensah2018ISTDuplex, Ray2014FSElaguageandquality, McIntosh2014MSRCodeReview, Chen2012MSRExplaining, Lee2016TSEMIM, Shang2015EMSElog}. In addition, there are three papers that blindly remove multicollinearity without investigating the correlations among the independent variables (\textit{ICI} action) and/or the possible effects of multicollinearity in-depth in Group 1.
+% \textst{We even found that some researchers blindly remove multicollinearity without investigating the correlation among the independent variables.} 
+However, we also looked into studies that do not deliberately remove multicollinearity for improved defect prediction performance. Therefore, we conduct an empirical study to understand these contradictory trends and to verify our arguments for multicollinearity treatment conform to the theoretical foundation.
+
+
+% \section{Necessity of studying multicollinearity} 
+% Some researchers are aware that it is unnecessary to remove multicollinearity when dealing with performance issues, e.g., papers~\cite{Rahman2012FSERecalling, Rahman2014ICSEpredictionfinder}. Majority of the involved studies misused the removal of multicollinearity. For example, in Table 1, we found 23 out of 44 papers removed multicollinearity before measuring prediction performance. There were also 10 studies that did not discuss why multicollinearity is a problem~\cite{Posnett2011ASEEcologicalInference, Rahman2013FSEbias, Kamei2016EMSEjit, Rajbahadur2017MSRRegression, Mensah2018ISTDuplex, Ray2014FSElaguageandquality, McIntosh2014MSRCodeReview, Chen2012MSRExplaining, Lee2016TSEMIM, Shang2015EMSElog}. In addition, there are three papers that blindly remove multicollinearity without investigating the correlations among the independent variables (the ICI action) and/or the possible effects of multicollinearity in-depth in Group 1. Given the fact that the majority of existing studies did not clearly clarify the necessity of multicollinearity removal, we found that there is a critical need for in-depth discussion about the multicollinearity issue in our research community. To initiate and elaborate this discussion, we provided both theoretical and empirical discussions. 
+\clearpage

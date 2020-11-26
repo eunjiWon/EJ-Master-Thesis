@@ -1,0 +1,26 @@
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table*}
+\centering
+\caption{The average ranking for each machine learners}
+\label{tab:ranking}
+% \scalebox{0.92}{
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+\textbf{Rank} & \textbf{LR}               & \textbf{DT}               & \textbf{RF}               & \textbf{NB}               & \textbf{BN}               & \textbf{LMT}              \\ \hline
+1                & \emph{\bf{None}}(4.018)        & \emph{SVIF4}(4.536)       & \emph{SVIF10}(3.151)      & \emph{\bf{None}}(4.276)        & \emph{\bf{None}}(3.944)        & \emph{\bf{None}}(3.773)        \\ \hline
+2                & \emph{SVIF10}(4.269)      & \emph{\bf{None}}(4.658)        & \emph{\bf{None}}(3.227)        & \emph{SVIF10}(4.349)      & \emph{SVIF10}(4.076)      & \emph{SVIF10}(4.153)      \\ \hline
+3                & \emph{SVIF4}(4.627)       & \emph{SVIF5}(4.718)       & \emph{SVIF5}(3.722)       & \emph{SVIF5}(4.696)       & \emph{SVIF5}(4.193)       & \emph{SVIF5}(4.584)       \\ \hline
+4                & \emph{SVIF5}(4.631)       & \emph{SVIF10}(4.871)      & \emph{SVIF4}(4.536)       & \emph{SVIF4}(5.004)       & \emph{SVIF4}(4.462)       & \emph{SVIF4}(4.809)       \\ \hline
+5                & \emph{Default-PCA}(4.807) & \emph{VCRR}(5.180)        & \emph{VCRR}(5.138)        & \emph{NSVIF10}(5.049)     & \emph{VCRR}(4.880)        & \emph{VCRR}(5.142)        \\ \hline
+6                & \emph{VCRR}(5.353)        & \emph{SVIF2.5}(5.307)     & \emph{NSVIF10}(5.676)     & \emph{VCRR}(5.636)        & \emph{SVIF2.5}(5.091)     & \emph{Default-PCA}(5.238) \\ \hline
+7                & \emph{NSVIF10}(5.587)     & \emph{NSVIF10}(5.418)     & \emph{SVIF2.5}(6.038)     & \emph{Default-PCA}(6.111) & \emph{NSVIF10}(5.767)     & \emph{NSVIF10}(5.944)     \\ \hline
+8                & \emph{SVIF2.5}(6.056)     & \emph{Default-PCA}(5.967) & \emph{Default-PCA}(6.678) & \emph{NSVIF5}(6.387)      & \emph{NSVIF5}(6.567)      & \emph{SVIF2.5}(6.044)     \\ \hline
+9                & \emph{NSVIF4}(7.556)      & \emph{NSVIF4}(6.809)      & \emph{NSVIF5}(7.407)      & \emph{SVIF2.5}(6.562)     & \emph{NSVIF4}(6.731)      & \emph{NSVIF5}(7.391)      \\ \hline
+10               & \emph{NSVIF5}(7.296)      & \emph{NSVIF5}(6.916)      & \emph{NSVIF4}(7.896)      & \emph{NSVIF4}(6.784)      & \emph{NSVIF2.5}(6.889)    & \emph{NSVIF4}(7.396)      \\ \hline
+11               & \emph{NSVIF2.5}(8.451)    & \emph{NSVIF2.5}(7.262)    & \emph{NSVIF2.5}(9.033)    & \emph{NSVIF2.5}(7.942)    & \emph{Default-PCA}(6.940) & \emph{NSVIF2.5}(8.073)    \\ \hline
+\end{tabular}%
+% }
+}
+\end{table*}

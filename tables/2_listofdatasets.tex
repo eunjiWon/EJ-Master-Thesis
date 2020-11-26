@@ -1,0 +1,92 @@
+% \begin{table}
+% % \caption{The 14 defect datasets from three groups.\jc{Did you name JIT? Name with more spefic one. JIT stands for Just-In-Time which is too general name.}}
+% \caption{The 45 defect datasets from five groups.}
+% \label{tab:datasets}
+% \small
+% \begin{tabular}{|c|c|c|c|c|c|}
+% \hline
+% Group &  Project & \multicolumn{2}{c|}{\# of instances} &\# of & Prediction \\ \cline{3-4}
+%  & &  All & Buggy(\%) & metrics & Granularity   \\ \hline \hline
+%        & EQ  & 325  & 129(39.69\%) &    &       \\
+%        & JDT & 997  & 206(20.66\%) &    &       \\
+% AEEEM  & LC  & 399  & 64(9.26\%)   & 61 & Class \\
+% \cite{DAmbros2012EMSEbenchmark} & ML  & 1862 & 245(13.16\%) &    &       \\
+%        & PDE & 1492 & 209(14.01\%) &    &       \\
+% \hline
+%        & Apache & 194  & 98(50.52\%)  &    &      \\
+% ReLink & Safe   & 56   & 22(39.29\%)  & 26 & File \\
+% \cite{Wu2011FSEReLink} & ZXing  & 399  & 118(29.57\%) &    &      \\
+% \hline
+%        & bugzilla & 4620  & 1696(36.70\%) &    &        \\
+%        & columba  & 4455  & 1361(30.54\%) &    &        \\
+% JIT\textunderscore QA   & jdt      & 35386 & 5089(14.38\%) & 14 & Change \\
+% \cite{Kamei2013TSEjit} & mozilla  & 98275 & 5149(5.23\%)  &    &        \\
+%        & platform & 64259 & 9452(14.71\%) &    &        \\
+%        & postgres & 20431 & 5119(25.05\%) &    &        \\
+% \hline
+% \end{tabular}
+% \end{table}
+
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+% \usepackage{graphicx}
+\begin{table*}[t!]
+\small
+\centering
+\setlength{\tabcolsep}{2pt}
+% \resizebox*{!}{0.8\textheight}{%
+\caption{The 45 defect datasets used in this study}
+\label{tab:datasets}
+\resizebox{0.4\textheight}{!}{%
+\begin{tabular}{|c|c|c|c|c|c|c}
+\cline{1-6}
+\multirow{2}{*}{Group} & \multirow{2}{*}{Dataset} & \multicolumn{2}{c|}{\# of instances} & \# of  & Granu- &  \\ \cline{3-4}
+ &  & All & Buggy(\%) & metrics & larity &  \\ \cline{1-6}
+\multirow{5}{*}{AEEEM} & EQ & 324 & 129(39.69\%) & \multirow{5}{*}{61} & \multirow{5}{*}{Class} &  \\ \cline{2-4}
+ & JDT & 997 & 206(20.66\%) &  &  &  \\ \cline{2-4}
+ & LC & 399 & 64(9.26\%) &  &  &  \\ \cline{2-4}
+ \cite{DAmbros2012EMSEbenchmark} & ML & 1862 & 245(13.16\%) &  &  &  \\ \cline{2-4}
+ & PDE & 1492 & 209(14.01\%) &  &  &  \\ \cline{1-6}
+\multirow{6}{*}{JIT\_QA} & bugzilla & 4620 & 1696(36.70\%) & \multirow{6}{*}{14} & \multirow{6}{*}{Change} &  \\ \cline{2-4}
+ & columba & 4455 & 1361(30.54\%) &  &  &  \\ \cline{2-4}
+ & jdt & 35386 & 5089(14.38\%) &  &  &  \\ \cline{2-4}
+ & mozilla & 98275 & 5149(5.23\%) &  &  &  \\ \cline{2-4}
+ \cite{Kamei2013TSEjit} & platform & 64259 & 9452(14.71\%) &  &  &  \\ \cline{2-4}
+ & postgres & 20431 & 5119(25.05\%) &  &  &  \\ \cline{1-6}
+\multirow{5}{*}{NASA} & cm1 & 498 & 49(9.84\%) & \multirow{5}{*}{21} & \multirow{5}{*}{Module} &  \\ \cline{2-4}
+ & jm1 & 10885 & 2106(19.35\%) &  &  &  \\ \cline{2-4}
+ & kc1 & 2109 & 326(15.46\%) &  &  &  \\ \cline{2-4}
+ \cite{ghotra2017msr} & kc2 & 520 & 105(20.19\%) &  &  &  \\ \cline{2-4}
+ & pc1 & 1109 & 77(6.94\%) &  &  &  \\ \cline{1-6}
+\multirow{26}{*}{PROMISE} & ant-1.5 & 293 & 32(10.92\%) & \multirow{26}{*}{20} & \multirow{26}{*}{Module} &  \\ \cline{2-4}
+ & ant-1.6 & 351 & 92(26.21\%) &  &  &  \\ \cline{2-4}
+ & ant-1.7 & 745 & 166(22.28\%) &  &  &  \\ \cline{2-4}
+ & camel-1.2 & 608 & 216(35.53\%) &  &  &  \\ \cline{2-4}
+ & camel-1.4 & 872 & 145(16.63\%) &  &  &  \\ \cline{2-4}
+ & camel-1.6 & 965 & 188(19.48\%) &  &  &  \\ \cline{2-4}
+ & ivy-1.4 & 241 & 16(6.64\%) &  &  &  \\ \cline{2-4}
+ & ivy-2.0 & 352 & 40(11.36\%) &  &  &  \\ \cline{2-4}
+ & jedit-3.2 & 272 & 90(33.09\%) &  &  &  \\ \cline{2-4}
+ & jedit-4.0 & 306 & 75(24.51\%) &  &  &  \\ \cline{2-4}
+ & jedit-4.1 & 312 & 79(25.32\%) &  &  &  \\ \cline{2-4}
+ & log4j-1.0 & 135 & 34(25.19\%) &  &  &  \\ \cline{2-4}
+ & log4j-1.1 & 109 & 37(33.94\%) &  &  &  \\ \cline{2-4}
+ & lucene-2.0 & 195 & 91(46.67\%) &  &  &  \\ \cline{2-4}
+ \cite{ghotra2017msr} & lucene-2.2 & 247 & 103(41.70\%) &  &  &  \\ \cline{2-4}
+ & lucene-2.4 & 340 & 137(40.29\%) &  &  &  \\ \cline{2-4}
+ & poi-1.5 & 237 & 96(40.51\%) &  &  &  \\ \cline{2-4}
+ & poi-2.5 & 385 & 137(35.58\%) &  &  &  \\ \cline{2-4}
+ & poi-3.0 & 442 & 161(36.43\%) &  &  &  \\ \cline{2-4}
+ & synapse-1.0 & 157 & 16(10.19\%) &  &  &  \\ \cline{2-4}
+ & synapse-1.1 & 222 & 60(27.03\%) &  &  &  \\ \cline{2-4}
+ & synapse-1.2 & 256 & 86(33.59\%) &  &  &  \\ \cline{2-4}
+ & xalan-2.4 & 723 & 110(15.21\%) &  &  &  \\ \cline{2-4}
+ & xalan-2.5 & 803 & 387(48.19\%) &  &  &  \\ \cline{2-4}
+ & xerces-1.2 & 440 & 71(16.14\%) &  &  &  \\ \cline{2-4}
+ & xerces-1.3 & 453 & 69(15.23\%) &  &  &  \\ \cline{1-6}
+\multirow{3}{*}{ReLink} & Apache & 194 & 98(50.52\%) & \multirow{3}{*}{26} & \multirow{3}{*}{File} &  \\ \cline{2-4}
+ & Safe & 56 & 22(39.29\%) &  &  &  \\ \cline{2-4}
+ \cite{Wu2011FSEReLink} & Zxing & 399 & 118(29.57\%) &  &  &  \\ \cline{1-6}
+\end{tabular}%
+}
+\end{table*}

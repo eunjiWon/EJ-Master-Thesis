@@ -1,0 +1,17 @@
+\begin{table*}
+\centering
+\caption{Average AUC values of approaches corresponding to prediction cases determined as multicollinear (VIF > 10, 5, 4, or 2.5) among the features selected by the CFS technique. We use decision tree for the machine learning algorithm. The $n$ in the last column is the number of prediction cases that contains multicollinearity among 4500 prediction cases.}
+\label{tab:comparingapproaches_CFS}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{c|c|c|c|c|c|c|c|c|c|c|c}
+\hline
+\multicolumn{12}{c}{\textbf{AUC}} \\ \hline
+\textbf{None} & \textbf{Default-PCA} & \textbf{NSVIF10} & \textbf{NSVIF5} & \textbf{NSVIF4} & \textbf{NSVIF2.5} & \textbf{SVIF10} & \textbf{SVIF5} & \textbf{SVIF4} & \textbf{SVIF2.5} & \textbf{VCRR} & \textbf{CFS} \\ \hline
+\hline
+0.659 & 0.656 & 0.646 & 0.629 & 0.625 & 0.576 & 0.656 & 0.660 & 0.661 & 0.660 & 0.661 & 0.666 (n = 2,164, VIF > 10) \\ \hline
+0.664 & 0.659 & 0.658 & 0.642 & 0.636 & 0.595 & 0.664 & 0.668 & 0.670 & 0.663 & 0.667 & 0.674 (n = 3,364, VIF > 5) \\ \hline
+0.664 & 0.658 & 0.658 & 0.642 & 0.635 & 0.594 & 0.664 & 0.667 & 0.669 & 0.663 & 0.668 & 0.676 (n = 3,566, VIF > 4) \\ \hline
+0.666 & 0.662 & 0.661 & 0.646 & 0.640 & 0.601 & 0.666 & 0.670 & 0.672 & 0.667 & 0.669 & 0.677 (n = 4,085, VIF > 2.5) \\ \hline
+\end{tabular}%
+}
+\end{table*}

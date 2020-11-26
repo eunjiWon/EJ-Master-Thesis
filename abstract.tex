@@ -1,0 +1,27 @@
+% originally by Sangchul Hahn, and revised by H. Choi
+
+\newcommand{\abstractEN}[1]{\normalsize #1 \par}
+\newcommand{\abstractKR}[1]{\normalsize #1 \par}
+
+\fontsize{14}{18} \selectfont Abstract \par
+\addcontentsline{toc}{chapter}{Abstract}
+
+\bigskip
+\abstractEN{
+Multicollinearity is known as a data-related problem that degrades defect prediction models. However, our literature review has unveiled contradictory handling of the multicollinearity problem in previous defect prediction studies. Specifically, we find that some studies have reduced/removed multicollinearity from data before building prediction models while some other studies were not aware of the multicollinearity problem at all. 
+
+The goal of this study is to investigate the multicollinearity problem in defect prediction and provide relevant guidelines when conducting defect prediction studies. To achieve the goal, we first examine the multicollinearity problem from a theoretical perspective. Then, we conduct an empirical study to investigate the impact of multicollinearity on defect prediction and how previous studies handling this issue. 
+
+To further evaluate the existing multicollinearity removing/reducing techniques, we have conducted a large-scale experiment on 45 datasets from AEEEM, ReLink, JIT\textunderscore QA, NASA, and PROMISE. A total of 1,485,000 predictions are conducted covering 11 different types of prediction models with or without multicollinearity removal techniques. The results show that principal component analysis, variance inflation factor, variable clustering, and removal of redundant metrics techniques, which target at removing multicollinearity from the dataset, do not always yield a statistically significant increase in defect prediction performance. Based on these results, we discussed how to deal with the multicollinearity issue for defect prediction studies.
+}
+\bigskip
+\bigskip
+\abstractKR{
+다중공선성은 결점 예측 모델을 저하시키는 데이터 관련 문제로 알려져 있다. 그러나, 본 문헌 검토에서는 이전의 결함 예측 연구에서 다중공선성 문제에 대한 상반된 처리 방법을 소개한다. 특히, 일부 다른 연구에서는 다중공선성 문제를 전혀 인식하지 못한 채 예측 모델을 구축하기 전에 데이터에서 다중공선성이 감소/제거되었다는 것을 발견한다.
+
+이 연구의 목적은 결함 예측 연구를 수행할 때 결함 예측의 다중공선성 문제를 조사하고 관련 지침을 제공하는 것이다. 목표를 달성하기 위해 먼저 이론적 관점에서 다중 공선성 문제를 검토한다. 그런 다음 다중공선성이 결점 예측에 미치는 영향과 이 문제를 다루는 이전의 연구들을 조사하기 위해 경험적 연구를 실시한다.
+
+기존의 다중공선성 제거/축소 기법을 추가로 평가하기 위해 AEEEM, ReLink, JIT\textunderscore QA, NASA 및 PROMISE의 45개 데이터셋에 대해 대규모 실험을 실시했으며, 다중 공선성 제거 기법을 포함하거나 포함하지 않고 11가지 유형의 예측 모델을 대상으로 총 1,485,000개의 예측을 수행한다. 그 결과 데이터 집합에서 다중공선성을 제거하는 것이 목적인 주성분 분석, 분산팽창인자, 가변 클러스터링 및 중복 메트릭 제거기법이 항상 통계적으로 유의한 예측 성능 향상을 제공하는 것은 아니다. 이러한 결과를 바탕으로 우리는 결함 예측 연구를 위한 다중공선성 문제를 어떻게 처리할 것인지 논의한다.
+}
+
+\clearpage

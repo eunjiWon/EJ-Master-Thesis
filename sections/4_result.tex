@@ -1,0 +1,163 @@
+\chapter{Results}
+\thispagestyle{fancy}
+\label{sec:result}
+% \input{tables/3_baselinesofresults}
+\input{tables/results_table}
+\bigskip
+Table~\ref{tab:baselinesofresults} lists the performance of the defect prediction model and presents the results from machine learning classifiers in five measures. There are `A' and `B' in the column `\# of prediction cases'. `A' represents reporting the average value of all 4,500 predictions by 10 $\times$ 10 cross-validation of 45 project datasets. `B' indicates reporting the average value of the prediction cases corresponding to the data (4,102 predictions) in which multicollinearity problem was found when using the VIF technique with the threshold of 10 in the \emph{None}. 
+We conduct the Wilcoxon signed-rank ($p<0.05$) and Cliff's $\delta$ tests at the average level to verify that each approach differs significantly from the \emph{None}. In Wilcoxon signed-rank test, approaches with significantly lower performance than \emph{None} are marked with asterisk (*). In the Cliff's $\delta$ test, the magnitude of the difference with \emph{None} such as negligible, small, medium, and large are marked as (N), (S), (M), and (L), respectively.
+\newline
+% Table~\ref{tab:baselinesofresults} lists the prediction performance results of the 11 types of prediction model in terms of the mean AUC for each group. As representative results, we report the AUC values for the models constructed using decision tree algorithm in this section. We obtain the mean AUC for each model and conduct a Friedman test with a Nemenyi test to verify to determine whether the prediction model rankings have statistically significant differences. 
+% Figure~\ref{fig:baselines_decisiontree_nemenyi} shows the results of post-hoc Nemenyi tests performed after the Friedman test ($p<0.05$) in terms of AUC. Based on the Nemenyi post-hoc tests, we connect models for which the prediction performance difference is not statistically significant by a single line~\cite{Demsar:2006:SCC:1248547.1248548}. 
+
+% \section{ RQ1}
+\noindent \textbf{(RQ1) Are the defect datasets suffering from multicollinearity?}
+\label{secRQ1}
+\newline
+% \textbf{Are the defect datasets suffering from multicollinearity problem?}
+
+To more accurately investigate how multicollinearity removal techniques affect predictive performance, we first examine the occurrence of multicollinearity problems in the defect dataset. If the dataset did not suffer from multicollinearity, the effects of removing multicollinearity technique would not be significant and this could affect the interpretation of our experimental results. To check the multicollinearity, we used a VIF with a threshold value of 10, a commonly used threshold value suggested by Gujarati~\cite{gujarati2009basic}. 
+In \emph{None} models, we found that 91.16\%  of predictions (4,102 out of 4,500 cases) have the multicollinearity issue. Based on this result, we conducted both `A' and `B' experiments as explained.
+\newline
+%To accurately analyze the effects of multicollinearity on predictive performance, we also conducted our experiments only with the 4,102 predictions that suffer from the multicollinearity issue.
+
+%The average value of approaches corresponding to predictions determined as multicollinear (VIF $>$ 10) in original dataset was marked `B' in `\# of prediction cases' of Table~\ref{tab:baselinesofresults}.
+
+%In Table~\ref{tab:baselinesofresults}, the average prediction performance for case `B' is usually slightly higher than for `A'. For example, 24 out of 30 prediction cases based on the \emph{None} performed better for `B'. And when all approaches are included, the performance of case `B' was better in 233 prediction cases out of 330 (70.6\%).
+
+%The fact that the predicted cases where multicollinearity problems are found perform better than those of the original dataset means multicollinearity does not harm predictive performance. However, this discussion is not enough to analyze how multicollinearity removal techniques affect predictive performance. Therefore, we discuss it in detail through RQ2 and RQ3.
+
+\noindent \textbf{(RQ2) How do the various multicollinearity removal techniques affect predictive performance?}
+% \section{ (RQ2) How do the various multicollinearity removal techniques affect  performance?}
+\label{secRQ2}
+\newline
+
+Six machine learners and five measurements produced 60 prediction results for each removal technique model, i.e. the number of 60 reported values in each column of Table~\ref{tab:baselinesofresults}. Each value means an average value of predictive performance from the 45 projects. 
+
+To evaluate the performance of the overall technique in terms of each measure, we calculate the average ranking of 12 predicted results for F-measure, AUC, and MCC in Table~\ref{tab:mes_ranking}.
+\input{tables/mea_ranking}
+We find that \emph{None} always has top rankings for three measurements. We did not present precision and recall rankings in the table but there trends are also same.
+% \jc{Ranking table will be shown here}
+%As a result, \emph{None} is 3.965, \emph{SVIF10} is 4.145, \emph{SVIF5} is 4.424, \emph{SVIF4} is 4.662, \emph{VCRR} is 5.221, \emph{NSVIF10} is 5.573, \emph{SVIF2.5} is 5.850, \emph{Default-PCA} is 5.957, \emph{NSVIF5} is 6.994, \emph{NSVIF4} is 7.195, and \emph{NSVIF5} is 7.942. 
+
+The Wilcoxon signed-rank test and Cliff's $\delta$ tests were conducted to examine whether the differences in each approach are statistically significant. When conducting the Wilcoxon signed-rank test, none of the 60 prediction results perform significantly better than the \emph{None}. However, there are many approaches that have significantly lower performance than the \emph{None}. For example, among 60 results, 57 are found in \emph{NSVIF2.5}, 55 in \emph{NSVIF4}, 54 in \emph{NSVIF5}, 47 in \emph{SVIF2.5}, 42 in \emph{NSVIF10}, 38 in \emph{Default-PCA}, 33 in \emph{VCRR}, 29 in \emph{SVIF4}, 20 in \emph{SVIF5}, and 4 in \emph{SVIF10}.
+
+In addition, none of the baselines have better performance with the large (L) effect size than those of \emph{None} when conducting the Cliff's $\delta$ test. What we note is no multicollinearity removal techniques show significantly better performance than \emph{None}.
+
+In order to take a closer look at the effects of multicollinearity, we examine only the data in case `B' (30 prediction results). When conducting Wilcoxon signed-rank test, Similar to 60 results, there are many approaches that have significantly lower performance than \emph{None}. For example, among 30 results, 29 are found in \emph{NSVIF2.5}, 27 in \emph{NSVIF5}, 27 in \emph{NSVIF4}, 23 in \emph{SVIF2.5}, 21 in \emph{NSVIF10}, 18 in \emph{Default-PCA}, 16 in \emph{VCRR}, 14 in \emph{SVIF4}, 9 in \emph{SVIF5}, and 2 in \emph{SVIF10}.
+% \newline
+%The results show that \emph{NSVIF2.5}, \emph{NSVIF5}, \emph{NSVIF4}, \emph{SVIF2.5}, \emph{NSVIF10}, \emph{Default-PCA}, and \emph{VCRR} baselines performed significantly lower than most (15 or more) \emph{None} results. This means that techniques that remove multicollinearity regardless of various machine learners and measurements reduce prediction performance.
+
+\input{tables/ranking} 
+\noindent \textbf{(RQ3) How does multicollinearity affect predictive performance when using various machine learns a classifier?}
+\label{secRQ3}
+\newline
+
+%In RQ2, the average values of prediction performances used six machine learners were analyzed,
+In RQ3, we investigate the performance trends of each machine learner. %Through the RQ3, we investigate the effects of multicollinearity removal techniques for each machine learners.
+Table~\ref{tab:ranking} lists the average ranking of 10 predicted cases for each machine learner. In all machine learners, \emph{None} is usually ranked high. For example, \emph{None} is second rank in decision tree and random forest, but first in the other four learners. As a result, regardless of machine learners, we could observe the removal of multicollinearity techniques do not have a positive effect on the improvement of defect prediction performance in our experimental setting. 
+% \jc{how about adding table for these results?}
+% When logistic regression was used as a classifier for building bug prediction models, the average of 10 rankings is as follows: \emph{None} is 4.018, \emph{SVIF10} is 4.269, \emph{SVIF4} is 4.627, \emph{SVIF5} is 4.631, \emph{Default-PCA} is 4.807, \emph{VCRR} is 5.353, \emph{NSVIF10} is 5.587, \emph{SVIF2.5} is 6.056, \emph{NSVIF5} is 7.296, \emph{NSVIF4} is 7.556, and \emph{NSVIF2.5} is 8.451.
+
+% When using decision tree, the average of 10 rankings is as follows: SVIF4 is 4.536, \emph{None} is	4.658, \emph{SVIF5}	is 4.718, \emph{SVIF10}	is 4.871, \emph{VCRR}	is 5.18, \emph{SVIF2.5}	is 5.307, \emph{NSVIF10}	is 5.418, \emph{Default-PCA}	is 5.967, \emph{NSVIF4}	is 6.809, \emph{NSVIF5}	is 6.916, \emph{NSVIF2.5}	is 7.262.
+
+% When using random forest, the average of 10 ranking is as follows: \emph{SVIF10} is	3.151, \emph{None}	is 3.227, \emph{SVIF5}	3.722, \emph{SVIF4}	is 4.536, \emph{VCRR}	is 5.138, \emph{NSVIF10}	is 5.676, \emph{SVIF2.5}	is 6.038, \emph{Default-PCA}	is 6.678, \emph{NSVIF5}	is 7.407, \emph{NSVIF4}	is 7.896, and \emph{NSVIF2.5}	is 9.033.
+
+% When using naive bayes, the average of 10 ranking is as follows: \emph{None}	is 4.276, \emph{SVIF10}	is 4.349, \emph{SVIF5}	is 4.696, \emph{SVIF4}	is 5.004, \emph{NSVIF10}	is 5.049, \emph{VCRR}	is 5.636, \emph{Default-PCA}	is 6.111, \emph{NSVIF5} is	6.387, \emph{SVIF2.5}	is 6.562, \emph{NSVIF4} is	6.784, and \emph{NSVIF2.5} is	7.942.
+
+% When using bayes network, the average of 10 ranking is as follows: \emph{None}	is 3.944, \emph{SVIF10} is	4.076, \emph{SVIF5}	is 4.193, \emph{SVIF4}	is 4.462, \emph{VCRR}	is 4.88, \emph{SVIF2.5}	is 5.091, \emph{NSVIF10}	is 5.767, \emph{NSVIF5} is	6.567, \emph{NSVIF4}	is 6.731, \emph{NSVIF2.5}	is 6.889, and \emph{Default-PCA}	is 6.94.
+
+% When using logistic model tree, the average of 10 ranking is as follows: \emph{None}	is 3.773, \emph{SVIF10}	is 4.153, \emph{SVIF5}	is 4.584, \emph{SVIF4}	is 4.809, \emph{VCRR}	is 5.142, \emph{Default-PCA}	is 5.238, \emph{NSVIF10}	is 5.944, \emph{SVIF2.5}	is 6.044, \emph{NSVIF5}	is 7.391, \emph{NSVIF4}	is 7.396, and \emph{NSVIF2.5} is	8.073.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \section{RQ1: Does the PCA improve predictive performance?}
+% \label{subsecRQ1}
+% % ~\ref{subsecRQ1}
+% % Table~\ref{tab:baselinesofresults} shows the predictive performance of the approach in\jc{do not forget preposition. Two nouns or noun phrases can't be come together in most cases. Check this issue globally.} mean AUC.
+% Table~\ref{tab:baselinesofresults} lists the prediction performance results of the various approaches in terms of the mean AUC for each group.
+% % ~\jc{I saw many sentences have syntax errors. common verb can't have two noun phrases. please revise.}. 
+% %For training a model, we use Decision tree for our prediction models after we preprocess a dataset using SMOTE to handle data imbalance problem.
+% % \jc{not imbalancing problem but just imbalance problem.}.
+% %the AUC value of the prediction model that leave the model as is despite multicollinearity (None)}
+% % \jc{previous one is complex and unclear phrase.} 
+% % In all 45 datasets, we observe that the predictive performance of the \emph{None} type models that do not remove multicollinearity is higher than that of the prediction models using PCA (\emph{Default-PCA}).
+% For average AUC of all 45 datasets, the prediction performance of the \emph{None} models, for which multicollinearity removal was not removed, exceeds those of the prediction models using PCA (\emph{Default-PCA}), at 0.664 and 0.658, respectively.
+% % For example, the average AUC for the 45 datasets for \emph{None} and \emph{Default-PCA} are 0.664 and 0.658, respectively.
+% % \jc{provide actual values in the sentence. Do this all results sections. You may write a new sentence statring with `For example,...' or use pardanthesis to show values for each baseline.}
+% % The smallest AUC difference between the two comparisons is found in the AEEEM\_JDT dataset with 0.011. 
+% % On the other hand, the largest difference between the AUC is found in the AEEEM\_EQ dataset with 0.035.\jc{Showing the range of the performance variation would be better showing min and max performance. e.g., Prediction peformance difference btween \emph{None} and \emph{Default-PCA} varies from 0.011 to 0.023. The average difference is ...}
+% % The performance difference between \emph{None} and \emph{Default-PCA} varies from 0.010 to 0.035. 
+% % The average AUC of 14 datasets of \emph{None} is 0.693 and that of \emph{Default-PCA} is 0.668. 
+% The average difference is 0.006.
+% % For all 14 datasets, the average value of the AUC differences is 0.025.
+% In addition, \emph{None} has a higher average ranking than \emph{Default-PCA}, at 5.444 and 5.822, respectively.
+% % In Figure~\ref{fig:baselines_decisiontree_nemenyi}, \emph{Default-PCA} is connected to the same line with \emph{None}, indicating that no statistically significant difference in the ranking was indicated by the Nemenyi post-hoc test. 
+% % However, there are statistically significant difference (the Wilcoxon signed-rank test, $p<0.05$) between None\jc{use the emph tag for the model type name} and Default-PCA in terms of AUC. 
+% Moreover, there is no statistically significant difference (the Wilcoxon signed-rank test, $p<0.05$) between \emph{None} and \emph{Default-PCA} in terms of the mean AUC of all 45 datasets.
+% %  ($p-value=0.502$). 
+% % Moreover, for the Cliff's delta effect size for prediction performance in terms of mean AUC all 45 datasets between \emph{PCA-Default} and \emph{None}, the difference magnitude is negligible ($|d|:0.041$). 
+% The Cliff's delta effect size for prediction performance in terms of mean AUC all 45 datasets between \emph{PCA-Default} and \emph{None} indicates a negligible difference magnitude. % of 0.041. 
+% % \jc{report detailed delta value.}.  
+% % We observed that \emph{Default-PCA} has lower performance than \emph{None} in terms of mean AUC.
+% % As a result, the feature extraction technique, PCA, does not improve predictive performance.\jc{do not need to generalize the results for feature extration techniqueS but just for PCA as we conducted experiemnts with PCA.}~\jc{revise other result sections by referring to my comments.}
+
+% Through three statistical techniques, we found that the difference between \emph{Default-PCA} and \emph{None} for performance is not significant. Thus, we conclude that PCA feature extraction technique does not have a significant impact for better predictive performance.
+% % \mybox{Through three statistical techniques, we found that the difference between \emph{Default-PCA} and \emph{None} for performance is not significant. Thus, we conclude that PCA feature extraction technique does not have significant impact for better predictive performance.}
+
+% \section{RQ2: Does the VIF improve prediction performance?}
+% \label{subsecRQ2}
+% % \jc{what is a point you want to sell here?} 
+% To address RQ2, we first compare \emph{None} with \emph{SVIF4}, which has the best prediction performance among the approaches to which the VIF technique was applied in our experimental setup. %\ej{leads to?}
+% % \jc{why do you want to compare None with SVIF4?? the sentence after `becuase' seems not showing the actual reason. Revise the paragraph. Different trend between stepwise and non-stepwise methods would be an indenpendet point. You can explain this trend in another paragraph.}
+% %because there is a large difference in performance depending on whether the VIF is the Non-Stepwise methods or the Stepwise methods in terms of the mean AUC. 
+% % From Table~\ref{tab:baselinesofresults}, the Stepwise methods ranking generally outperforms the Non-Stepwise methods.
+% % Among the VIF approaches, the best performance is \emph{SVIF4}. 
+% From Table~\ref{tab:baselinesofresults}, the difference between \emph{None} and \emph{SVIF4} in terms of the average AUC for the 45 datasets is 0.003.
+% \emph{SVIF4} has a higher average ranking than \emph{None}, at 4.556 and 5.444, respectively.
+% % For example, the average ranking for \emph{SVIF4} is 5.733 while that of \emph{None} is 6.622.
+% % However, in Figure~\ref{fig:baselines_decisiontree_nemenyi}, \emph{None} and \emph{SVIF4} are connected by the same line, indicating that no statistically significant difference in the ranking was indicated by the Nemenyi post-hoc test. 
+% Moreover, there is no statistically significant difference (the Wilcoxon signed-rank test, $p<0.05$) between \emph{None} and \emph{SVIF4} in terms of mean AUC for all 45 datasets. % ($p-value=0.313$). 
+% The Cliff's delta effect size for prediction performance in terms of mean AUC all 45 datasets between \emph{SVIF4} and \emph{None} indicates a negligible difference magnitude. % of 0.033. 
+% % Moreover, difference between \emph{None} and \emph{SVIF4} is not statistically significant in terms of the mean AUC of 45 datasets (the Wilcoxon signed-rank test, $p<0.05$).  
+% % In addition, when we measure effect size for predictive performance\jc{I fxied typo of `performance' several times. Tunr on spell-check feature in your editor or be careful} in terms of AUC between \emph{SIVF4} and \emph{None} there is a small difference (Cliff’s delta).  
+% % When we measure the Cliff's delta effect size for predictive performance in terms of AUC between \emph{SVIF4} and \emph{None}, the magnitude of their difference is small (0.194). 
+% (Note that we compared \emph{None} with \emph{SVIF4}, the best-performance of all VIF-related approaches.)
+% % As a conclusion, the feature selection technique, VIF, does not improve predictive performance.
+
+% Through three statistical techniques, we found that the difference between \emph{SVIF4} and \emph{None} for prediction performance was not significant. Hence, we conclude that the VIF feature selection technique does not significantly improve prediction performance.
+% % \mybox{Through three statistical techniques, we found that the difference between \emph{SVIF4} and \emph{None} for prediction performance was not significant. Hence, we conclude that the VIF feature selection technique does not significantly improve prediction performance.}
+% % Note that among the VIF approaches such as NSVIF10, NSVIF5, NSVIF4, NSVIF2.5, and SVIF10 are lower ranking than None. We discuss these results more in the Section ~\ref{subsecSVIF}.
+% % Note that, among the VIF approaches, non-stepwise VIF have a lower performance than stepwise VIF in terms of the average AUC. We discuss these results further in the Section ~\ref{subsecSVIF}.
+
+% \section{RQ3: Does the VCRR improve prediction performance?}
+% \label{subsecRQ3}
+% For average AUC of 45 datasets, the prediction performance of the \emph{VCRR} has a higher than \emph{None}, at 0.666 and 0.664, respectively.
+% % For example, the average AUC of 45 datasets for \emph{VCRR} is 0.666 while that of \emph{None} is 0.664.
+% The average difference is 0.002. 
+% However, \emph{None} has a same average ranking with \emph{VCRR}, at 5.444. Moreover, there is no statistically significant difference (the Wilcoxon signed-rank test, $p<0.05$) between \emph{None} and \emph{VCRR} in terms of mean AUC for all 45 datasets. % ($p-value=0.568$). 
+% The Cliff's delta effect size for prediction performance in terms of mean AUC all 45 datasets between \emph{VCRR} and \emph{None} indicates a negligible difference magnitude. % of 0.011. 
+
+% Thus, we found that the difference between \emph{VCRR} and \emph{None} for predictive performance was not significant. Therefore, we conclude that VCRR feature selection technique does not significantly improve prediction performance.
+% % \mybox{Through three statistical techniques, we found that the difference between \emph{VCRR} and \emph{None} for predictive performance was not significant. Thus, we conclude that VCRR feature selection technique does not significantly improve prediction performance.}
+% % \section{RQ3: Does applying PCA and VIF lead to better defect predictive performance compared to other prediction settings without applying them?}
+% % % \section{RQ3: Which approach has the best predictive performance?}
+% % \label{subsecRQ3}
+% % In RQ1 and RQ2, we observed 
+% % % \jc{use past tense properly. check globally. verb is related some kinds behaviors we did in the past, then use past tense. if verb is some kinds of status, present tense is most likely OK. but decide well based on context.} 
+% % that PCA and VIF cannot improve predictive performance when comparing \emph{None} in our experimental setup. 
+% % In Figure~\ref{fig:baselines_decisiontree_nemenyi}, we observed the ranking in the order of \emph{WFS-BestFirst}, \emph{CFS-BestFirst}, \emph{SVIF4}, \emph{SVIF2.5}, \emph{SVIF5}, \emph{None}, \emph{NSVIF10}, \emph{SVIF10}, \emph{NSVIF5}, \emph{Default-PCA}, \emph{NSVIF4}, and \emph{NSVIF2.5}.
+% % In table~\ref{tab:baselinesofresults}, the mean AUC of the prediction model that applies the Wrapper-based feature selection technique (\emph{WFS-BestFirst}) shows the best performance than others except for EQ project in AEEEM (in AEEEM\textunderscore EQ, \emph{CFS-BestFirst} shows the best performance).
+% % For example, the average ranking for \emph{WFS-BestFirst} is 1.071. 
+% % When comparing \emph{None} with \emph{WFS-BestFirst} in Figure~\ref{fig:baselines_decisiontree_nemenyi}, there is statistically significant difference in ranking (the Nemenyi test) because \emph{None} and \emph{WFS-BestFirst} are not grouped by the same line. 
+% % The only approach that shows statistically significant difference from \emph{None} is \emph{WFS-BestFirst}.
+% % In addition, difference between \emph{WFS-BestFirst} and \emph{None} is statistically significant in terms of the mean AUC values (the Wilcoxon signed-rank test, $p<0.05$).
+% % % \jc{revised this like my sentence in the previous section}.
+% % Moreover, when we measure the Cliff's delta effect size for predictive performance in terms of AUC between \emph{WFS-BestFirst} and \emph{None}, the magnitude of their difference is large (0.755). 
+% % We discuss these results more in the Section ~\ref{subsecWFS}.
+% %\jc{avoid to express direct expression like do not affect performance}. 
+% % However, WFS improved predictive performance in our experiments with statistical significance.
+
+% Through RQ1, 2, and 3, those results show no clear positive performance impact of PCA, VIF, and VCRR application.
+% Thus, we conclude that multicollinearity is not particularly harmful to defect prediction models under our experimental settings.
+% These results also confirm the theoretical background we discussed in Section~\ref{predictionofmulticollinearity}.
+\clearpage

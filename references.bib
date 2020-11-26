@@ -1,0 +1,1165 @@
+%%% ====================================================================
+%%%  BibTeX-file{
+%%%     author          = "Gerry Murray",
+%%%     version         = "1.2",
+%%%     date            = "2 April 2012",
+%%%     filename        = "acmsmall-sample-bibfile.bib",
+%%%     address         = "ACM, NY",
+%%%     email           = "murray at hq.acm.org",
+%%%     codetable       = "ISO/ASCII",
+%%%     keywords        = "ACM Reference Format, bibliography, citation, references",
+%%%     supported       = "yes",
+%%%     docstring       = "This BibTeX database file contains 'bibdata' entries
+%%%                        that 'match' the examples provided in the Specifications Document
+%%%                        AND, also, 'legacy'-type bibs. It should assist authors in
+%%%                        choosing the 'correct' at-bibtype and necessary bib-fields
+%%%                        so as to obtain the appropriate ACM Reference Format output.
+%%%			   It also contains many 'Standard Abbreviations'. "
+%%%  }
+%%% ====================================================================
+
+% Journals
+
+% First the Full Name is given, then the abbreviation used in the AMS Math
+% Reviews, with an indication if it could not be found there.
+% Note the 2nd overwrites the 1st, so swap them if you want the full name.
+
+ %{AMS}
+ @String{AMSTrans = "American Mathematical Society Translations" }
+ @String{AMSTrans = "Amer. Math. Soc. Transl." }
+ @String{BullAMS = "Bulletin of the American Mathematical Society" }
+ @String{BullAMS = "Bull. Amer. Math. Soc." }
+ @String{ProcAMS = "Proceedings of the American Mathematical Society" }
+ @String{ProcAMS = "Proc. Amer. Math. Soc." }
+ @String{TransAMS = "Transactions of the American Mathematical Society" }
+ @String{TransAMS = "Trans. Amer. Math. Soc." }
+
+ %ACM
+ @String{CACM = "Communications of the {ACM}" }
+ @String{CACM = "Commun. {ACM}" }
+ @String{CompServ = "Comput. Surveys" }
+ @String{JACM = "J. ACM" }
+ @String{ACMMathSoft = "{ACM} Transactions on Mathematical Software" }
+ @String{ACMMathSoft = "{ACM} Trans. Math. Software" }
+ @String{SIGNUM = "{ACM} {SIGNUM} Newsletter" }
+ @String{SIGNUM = "{ACM} {SIGNUM} Newslett." }
+
+ @String{AmerSocio = "American Journal of Sociology" }
+ @String{AmerStatAssoc = "Journal of the American Statistical Association" }
+ @String{AmerStatAssoc = "J. Amer. Statist. Assoc." }
+ @String{ApplMathComp = "Applied Mathematics and Computation" }
+ @String{ApplMathComp = "Appl. Math. Comput." }
+ @String{AmerMathMonthly = "American Mathematical Monthly" }
+ @String{AmerMathMonthly = "Amer. Math. Monthly" }
+ @String{BIT = "{BIT}" }
+ @String{BritStatPsych = "British Journal of Mathematical and Statistical
+          Psychology" }
+ @String{BritStatPsych = "Brit. J. Math. Statist. Psych." }
+ @String{CanMathBull = "Canadian Mathematical Bulletin" }
+ @String{CanMathBull = "Canad. Math. Bull." }
+ @String{CompApplMath = "Journal of Computational and Applied Mathematics" }
+ @String{CompApplMath = "J. Comput. Appl. Math." }
+ @String{CompPhys = "Journal of Computational Physics" }
+ @String{CompPhys = "J. Comput. Phys." }
+ @String{CompStruct = "Computers and Structures" }
+ @String{CompStruct = "Comput. \& Structures" }
+ @String{CompJour = "The Computer Journal" }
+ @String{CompJour = "Comput. J." }
+ @String{CompSysSci = "Journal of Computer and System Sciences" }
+ @String{CompSysSci = "J. Comput. System Sci." }
+ @String{Computing = "Computing" }
+ @String{ContempMath = "Contemporary Mathematics" }
+ @String{ContempMath = "Contemp. Math." }
+ @String{Crelle = "Crelle's Journal" }
+ @String{GiornaleMath = "Giornale di Mathematiche" }
+ @String{GiornaleMath = "Giorn. Mat." } % didn't find in AMS MR., ibid.
+
+ %IEEE
+ @String{Computer = "{IEEE} Computer" }
+ @String{IEEETransComp = "{IEEE} Transactions on Computers" }
+ @String{IEEETransComp = "{IEEE} Trans. Comput." }
+ @String{IEEETransAC = "{IEEE} Transactions on Automatic Control" }
+ @String{IEEETransAC = "{IEEE} Trans. Automat. Control" }
+ @String{IEEESpec = "{IEEE} Spectrum" } % didn't find in AMS MR
+ @String{ProcIEEE = "Proceedings of the {IEEE}" }
+ @String{ProcIEEE = "Proc. {IEEE}" } % didn't find in AMS MR
+ @String{IEEETransAeroElec = "{IEEE} Transactions on Aerospace and Electronic
+     Systems" }
+ @String{IEEETransAeroElec = "{IEEE} Trans. Aerospace Electron. Systems" }
+
+ @String{IMANumerAna = "{IMA} Journal of Numerical Analysis" }
+ @String{IMANumerAna = "{IMA} J. Numer. Anal." }
+ @String{InfProcLet = "Information Processing Letters" }
+ @String{InfProcLet = "Inform. Process. Lett." }
+ @String{InstMathApp = "Journal of the Institute of Mathematics and
+     its Applications" }
+ @String{InstMathApp = "J. Inst. Math. Appl." }
+ @String{IntControl = "International Journal of Control" }
+ @String{IntControl = "Internat. J. Control" }
+ @String{IntNumerEng = "International Journal for Numerical Methods in
+     Engineering" }
+ @String{IntNumerEng = "Internat. J. Numer. Methods Engrg." }
+ @String{IntSuper = "International Journal of Supercomputing Applications" }
+ @String{IntSuper = "Internat. J. Supercomputing Applic." } % didn't find
+%% in AMS MR
+ @String{Kibernetika = "Kibernetika" }
+ @String{JResNatBurStand = "Journal of Research of the National Bureau
+     of Standards" }
+ @String{JResNatBurStand = "J. Res. Nat. Bur. Standards" }
+ @String{LinAlgApp = "Linear Algebra and its Applications" }
+ @String{LinAlgApp = "Linear Algebra Appl." }
+ @String{MathAnaAppl = "Journal of Mathematical Analysis and Applications" }
+ @String{MathAnaAppl = "J. Math. Anal. Appl." }
+ @String{MathAnnalen = "Mathematische Annalen" }
+ @String{MathAnnalen = "Math. Ann." }
+ @String{MathPhys = "Journal of Mathematical Physics" }
+ @String{MathPhys = "J. Math. Phys." }
+ @String{MathComp = "Mathematics of Computation" }
+ @String{MathComp = "Math. Comp." }
+ @String{MathScand = "Mathematica Scandinavica" }
+ @String{MathScand = "Math. Scand." }
+ @String{TablesAidsComp = "Mathematical Tables and Other Aids to Computation" }
+ @String{TablesAidsComp = "Math. Tables Aids Comput." }
+ @String{NumerMath = "Numerische Mathematik" }
+ @String{NumerMath = "Numer. Math." }
+ @String{PacificMath = "Pacific Journal of Mathematics" }
+ @String{PacificMath = "Pacific J. Math." }
+ @String{ParDistComp = "Journal of Parallel and Distributed Computing" }
+ @String{ParDistComp = "J. Parallel and Distrib. Comput." } % didn't find
+%% in AMS MR
+ @String{ParComputing = "Parallel Computing" }
+ @String{ParComputing = "Parallel Comput." }
+ @String{PhilMag = "Philosophical Magazine" }
+ @String{PhilMag = "Philos. Mag." }
+ @String{ProcNAS = "Proceedings of the National Academy of Sciences
+                    of the USA" }
+ @String{ProcNAS = "Proc. Nat. Acad. Sci. U. S. A." }
+ @String{Psychometrika = "Psychometrika" }
+ @String{QuartMath = "Quarterly Journal of Mathematics, Oxford, Series (2)" }
+ @String{QuartMath = "Quart. J. Math. Oxford Ser. (2)" }
+ @String{QuartApplMath = "Quarterly of Applied Mathematics" }
+ @String{QuartApplMath = "Quart. Appl. Math." }
+ @String{RevueInstStat = "Review of the International Statisical Institute" }
+ @String{RevueInstStat = "Rev. Inst. Internat. Statist." }
+
+ %SIAM
+ @String{JSIAM = "Journal of the Society for Industrial and Applied
+     Mathematics" }
+ @String{JSIAM = "J. Soc. Indust. Appl. Math." }
+ @String{JSIAMB = "Journal of the Society for Industrial and Applied
+     Mathematics, Series B, Numerical Analysis" }
+ @String{JSIAMB = "J. Soc. Indust. Appl. Math. Ser. B Numer. Anal." }
+ @String{SIAMAlgMeth = "{SIAM} Journal on Algebraic and Discrete Methods" }
+ @String{SIAMAlgMeth = "{SIAM} J. Algebraic Discrete Methods" }
+ @String{SIAMAppMath = "{SIAM} Journal on Applied Mathematics" }
+ @String{SIAMAppMath = "{SIAM} J. Appl. Math." }
+ @String{SIAMComp = "{SIAM} Journal on Computing" }
+ @String{SIAMComp = "{SIAM} J. Comput." }
+ @String{SIAMMatrix = "{SIAM} Journal on Matrix Analysis and Applications" }
+ @String{SIAMMatrix = "{SIAM} J. Matrix Anal. Appl." }
+ @String{SIAMNumAnal = "{SIAM} Journal on Numerical Analysis" }
+ @String{SIAMNumAnal = "{SIAM} J. Numer. Anal." }
+ @String{SIAMReview = "{SIAM} Review" }
+ @String{SIAMReview = "{SIAM} Rev." }
+ @String{SIAMSciStat = "{SIAM} Journal on Scientific and Statistical
+     Computing" }
+ @String{SIAMSciStat = "{SIAM} J. Sci. Statist. Comput." }
+
+ @String{SoftPracExp = "Software Practice and Experience" }
+ @String{SoftPracExp = "Software Prac. Experience" } % didn't find in AMS MR
+ @String{StatScience = "Statistical Science" }
+ @String{StatScience = "Statist. Sci." }
+ @String{Techno = "Technometrics" }
+ @String{USSRCompMathPhys = "{USSR} Computational Mathematics and Mathematical
+     Physics" }
+ @String{USSRCompMathPhys = "{U. S. S. R.} Comput. Math. and Math. Phys." }
+ @String{VLSICompSys = "Journal of {VLSI} and Computer Systems" }
+ @String{VLSICompSys = "J. {VLSI} Comput. Syst." }
+ @String{ZAngewMathMech = "Zeitschrift fur Angewandte Mathematik und
+     Mechanik" }
+ @String{ZAngewMathMech = "Z. Angew. Math. Mech." }
+ @String{ZAngewMathPhys = "Zeitschrift fur Angewandte Mathematik und Physik" }
+ @String{ZAngewMathPhys = "Z. Angew. Math. Phys." }
+
+% Publishers % ================================================= |
+
+ @String{Academic = "Academic Press" }
+ @String{ACMPress = "{ACM} Press" }
+ @String{AdamHilger = "Adam Hilger" }
+ @String{AddisonWesley = "Addison-Wesley" }
+ @String{AllynBacon = "Allyn and Bacon" }
+ @String{AMS = "American Mathematical Society" }
+ @String{Birkhauser = "Birkha{\"u}ser" }
+ @String{CambridgePress = "Cambridge University Press" }
+ @String{Chelsea = "Chelsea" }
+ @String{ClaredonPress = "Claredon Press" }
+ @String{DoverPub = "Dover Publications" }
+ @String{Eyolles = "Eyolles" }
+ @String{HoltRinehartWinston = "Holt, Rinehart and Winston" }
+ @String{Interscience = "Interscience" }
+ @String{JohnsHopkinsPress = "The Johns Hopkins University Press" }
+ @String{JohnWileySons = "John Wiley and Sons" }
+ @String{Macmillan = "Macmillan" }
+ @String{MathWorks = "The Math Works Inc." }
+ @String{McGrawHill = "McGraw-Hill" }
+ @String{NatBurStd = "National Bureau of Standards" }
+ @String{NorthHolland = "North-Holland" }
+ @String{OxfordPress = "Oxford University Press" }  %address Oxford or London?
+ @String{PergamonPress = "Pergamon Press" }
+ @String{PlenumPress = "Plenum Press" }
+ @String{PrenticeHall = "Prentice-Hall" }
+ @String{SIAMPub = "{SIAM} Publications" }
+ @String{Springer = "Springer-Verlag" }
+ @String{TexasPress = "University of Texas Press" }
+ @String{VanNostrand = "Van Nostrand" }
+ @String{WHFreeman = "W. H. Freeman and Co." }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% my entries
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@inproceedings{TantithamthavornICSE16Automated,
+author = {Tantithamthavorn, Chakkrit and McIntosh, Shane and Hassan, Ahmed E. and Matsumoto, Kenichi},
+title = {Automated Parameter Optimization of Classification Techniques for Defect Prediction Models},
+year = {2016},
+isbn = {9781450339001},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/2884781.2884857},
+doi = {10.1145/2884781.2884857},
+booktitle = {Proceedings of the 38th International Conference on Software Engineering},
+pages = {321–332},
+numpages = {12},
+keywords = {software defect prediction, experimental design, parameter optimization, classification techniques},
+location = {Austin, Texas},
+series = {ICSE '16}
+}
+
+@misc{agrawal2020simpler,
+    title={Simpler Hyperparameter Optimization for Software Analytics: Why, How, When?},
+    author={Amritanshu Agrawal and Xueqi Yang and Rishabh Agrawal and Xipeng Shen and Tim Menzies},
+    year={2020},
+    eprint={2008.07334},
+    archivePrefix={arXiv},
+    primaryClass={cs.SE}
+}
+
+@ARTICLE{
+Kondo2020EMSEContext,  
+author={M. {Kondo}, D.M. {German}, O. {Mizuno} and E. {Choi}},  
+journal={Empirical Software Engineering},   
+title={The impact of context metrics on just-in-time defect prediction},   
+year={2020},  
+pages={890–939},
+doi={10.1007/s10664-019-09736-3}
+}
+
+@ARTICLE{
+Yang2018TRRidge,  
+author={X. {Yang} and W. {Wen}},  
+journal={IEEE Transactions on Reliability},   
+title={Ridge and Lasso Regression Models for Cross-Version Defect Prediction},   
+year={2018},  
+volume={67},  
+number={3},  
+pages={885-896},
+}
+
+@ARTICLE{
+Jiarpakdee2020EMSEautomated,  
+author={J. {Jiarpakdee} and C. {Tantithamthavorn}, C. {Treude}},  
+journal={Empirical Software Engineering},   
+title={The impact of automated feature selection techniques on the interpretation of defect models},   
+year={2020},  
+pages={1573-7616},
+doi={10.1007/s10664-020-09848-1}
+}
+
+    
+@book{gujarati2009basic,
+  title={Basic econometrics},
+  author={Gujarati, Damodar N},
+  year={2009},
+  publisher={Tata McGraw-Hill Education}
+}
+
+@article{Laura2011BioinformaticsClassification,
+    author = {Tolo\c{s}i, Laura and Lengauer, Thomas},
+    title = "{Classification with correlated features: unreliability of feature ranking and solutions}",
+    journal = {Bioinformatics},
+    volume = {27},
+    number = {14},
+    pages = {1986-1994},
+    year = {2011},
+    month = {05},
+    abstract = "{Motivation: Classification and feature selection of genomics or transcriptomics data is often hampered by the large number of features as compared with the small number of samples available. Moreover, features represented by probes that either have similar molecular functions (gene expression analysis) or genomic locations (DNA copy number analysis) are highly correlated. Classical model selection methods such as penalized logistic regression or random forest become unstable in the presence of high feature correlations. Sophisticated penalties such as group Lasso or fused Lasso can force the models to assign similar weights to correlated features and thus improve model stability and interpretability. In this article, we show that the measures of feature relevance corresponding to the above-mentioned methods are biased such that the weights of the features belonging to groups of correlated features decrease as the sizes of the groups increase, which leads to incorrect model interpretation and misleading feature ranking.Results: With simulation experiments, we demonstrate that Lasso logistic regression, fused support vector machine, group Lasso and random forest models suffer from correlation bias. Using simulations, we show that two related methods for group selection based on feature clustering can be used for correcting the correlation bias. These techniques also improve the stability and the accuracy of the baseline models. We apply all methods investigated to a breast cancer and a bladder cancer arrayCGH dataset and in order to identify copy number aberrations predictive of tumor phenotype.Availability: R code can be found at: http://www.mpi-inf.mpg.de/~laura/Clustering.r.Contact:laura.tolosi@mpi-inf.mpg.deSupplementary information:Supplementary data are available at Bioinformatics online.}",
+    issn = {1367-4803},
+    doi = {10.1093/bioinformatics/btr300},
+    url = {https://doi.org/10.1093/bioinformatics/btr300},
+    eprint = {https://academic.oup.com/bioinformatics/article-pdf/27/14/1986/18530216/btr300.pdf},
+}
+@article{Strobl2008BMCConditional,
+    author = {Carolin Strobl and Anne-Laure Boulesteix and Thomas Kneib and Thomas Augustin and Achim Zeileis},
+    title = "{Conditional variable importance for random forests}",
+    journal = {BMC Bioinformatics},
+    volume = {9},
+    number = {307},
+    year = {2008},
+  }
+@ARTICLE{Emam2001TSEconfoundingeffect,
+author={K. El Emam and S. Benlarbi and N. Goel and S. N. Rai},
+journal={IEEE Transactions on Software Engineering},
+title={The confounding effect of class size on the validity of object-oriented metrics},
+year={2001},
+volume={27},
+number={7},
+pages={630-650},
+keywords={C++ language;object-oriented programming;software fault tolerance;software metrics;software quality;C++;class size;fault-proneness;object-oriented metrics;software metrics validation;software quality;telecommunications framework;Guidelines;Helium;Maintenance;Object oriented modeling;Predictive models;Size control;Software engineering;Software quality;Telecommunication control;Testing},
+doi={10.1109/32.935855},
+ISSN={0098-5589},
+month={Jul},
+}
+
+@ARTICLE{Khoshgoftaar1990developmenterrors,
+author={T. M. Khoshgoftaar and J. C. Munson},
+journal={IEEE Journal on Selected Areas in Communications},
+title={Predicting software development errors using software complexity metrics},
+year={1990},
+volume={8},
+number={2},
+pages={253-261},
+keywords={quality control;software reliability;complexity factors;empirical data;errors prediction;factor analysis;orthogonal complexity domains;orthogonal measures;predictive models;program error measures;program size;program structure;program volume;regression analysis;regression models;software complexity metrics;software development errors;Computer errors;Computer science;Data analysis;Parameter estimation;Predictive models;Programming;Software measurement;Software metrics;Software reliability;Testing},
+doi={10.1109/49.46879},
+ISSN={0733-8716},
+month={Feb},}
+
+
+
+@article{VanKoten2006ISTmaintainability,
+title = "An application of Bayesian network for predicting object-oriented software maintainability",
+journal = "Information and Software Technology",
+volume = "48",
+number = "1",
+pages = "59 - 67",
+year = "2006",
+issn = "0950-5849",
+doi = "https://doi.org/10.1016/j.infsof.2005.03.002",
+url = "http://www.sciencedirect.com/science/article/pii/S0950584905000339",
+author = "C. van Koten and A.R. Gray",
+keywords = "Object-oriented systems, Maintainability, Bayesian network, Regression tree, Regression"
+}
+@ARTICLE{Zhang2017TSEaggregate,
+author={F. Zhang and A. E. Hassan and S. McIntosh and Y. Zou},
+journal={IEEE Transactions on Software Engineering},
+title={The Use of Summation to Aggregate Software Metrics Hinders the Performance of Defect Prediction Models},
+year={2017},
+volume={43},
+number={5},
+pages={476-491},
+keywords={Java;data aggregation;data mining;public domain software;software metrics;Cc;Java projects;McCabe cyclomatic complexity;Sloc;class-level software metrics;defect prediction models;effort-aware defect prediction;granularity disagreement;historical defect data mining;lines of code;method-level software metrics;open source projects;software changes recording;software metrics aggregation;software organizations;summation;version control system;Correlation;Data models;Indexes;Predictive models;Software;Software metrics;Defect prediction;aggregation scheme;software metrics},
+doi={10.1109/TSE.2016.2599161},
+ISSN={0098-5589},
+month={May},
+}
+
+
+
+@ARTICLE{Kamei2013TSEjit,
+author={Y. Kamei and E. Shihab and B. Adams and A. E. Hassan and A. Mockus and A. Sinha and N. Ubayashi},
+journal={IEEE Transactions on Software Engineering},
+title={A large-scale empirical study of just-in-time quality assurance},
+year={2013},
+volume={39},
+number={6},
+pages={757-773},
+keywords={program testing;software maintenance;software metrics;software quality;commercial projects;cost reduction;defect prediction models;defect-prone file identification;defect-prone package identification;defect-prone software change identification;just-in-time quality assurance;open source projects;risk model;risky changes;software metrics;software quality assurance activities;software repository mining;software systems;source code inspection;unit testing;Accuracy;Entropy;Measurement;Object oriented modeling;Predictive models;Quality assurance;Software;Maintenance;defect prediction;just-in-time prediction;mining software repositories;software metrics},
+doi={10.1109/TSE.2012.70},
+ISSN={0098-5589},
+month={June},}
+@INPROCEEDINGS{Taba2013ICSMantipattern,
+author={S. E. S. Taba and F. Khomh and Y. Zou and A. E. Hassan and M. Nagappan},
+booktitle={2013 IEEE International Conference on Software Maintenance},
+title={Predicting Bugs Using Antipatterns},
+year={2013},
+volume={},
+number={},
+pages={270-279},
+keywords={software metrics;software quality;ArgoUML;Eclipse;antipattern based metrics;cross-system bug prediction models;software metrics;software quality assurance;Computational modeling;Computer bugs;History;Mathematical model;Measurement;Predictive models;Software systems;antipattern;bug prediction;software quality},
+doi={10.1109/ICSM.2013.38},
+ISSN={1063-6773},
+month={Sept},}
+@ARTICLE{Lee2016TSEMIM,
+author={T. Lee and J. Nam and D. Han and S. Kim and H. Peter In},
+journal={IEEE Transactions on Software Engineering},
+title={Developer Micro Interaction Metrics for Software Defect Prediction},
+year={2016},
+volume={42},
+number={11},
+pages={1015-1035},
+keywords={software maintenance;software metrics;software quality;Eclipse plug-in;MIM metric;Mylyn plug-in;defect prediction metrics;developer behavioral interaction patterns;developer interaction information;developer microinteraction metrics;software defect prediction;software development;software quality assurance;Complexity theory;Quality assurance;Software metrics;Software quality;Defect prediction;Mylyn;developer interaction;software metrics;software quality},
+doi={10.1109/TSE.2016.2550458},
+ISSN={0098-5589},
+month={Nov},}
+@Article{Kamei2016EMSEjit,
+author="Kamei, Yasutaka
+and Fukushima, Takafumi
+and McIntosh, Shane
+and Yamashita, Kazuhiro
+and Ubayashi, Naoyasu
+and Hassan, Ahmed E.",
+title="Studying just-in-time defect prediction using cross-project models",
+journal="Empirical Software Engineering",
+year="2016",
+month="Oct",
+day="01",
+volume="21",
+number="5",
+pages="2072--2106",
+doi="10.1007/s10664-015-9400-x",
+url="https://doi.org/10.1007/s10664-015-9400-x"
+}
+
+
+@inproceedings{Rahman2014ICSEpredictionfinder,
+ author = {Rahman, Foyzur and Khatri, Sameer and Barr, Earl T. and Devanbu, Premkumar},
+ title = {Comparing Static Bug Finders and Statistical Prediction},
+ booktitle = {Proceedings of the 36th International Conference on Software Engineering},
+ series = {ICSE 2014},
+ year = {2014},
+ isbn = {978-1-4503-2756-5},
+ location = {Hyderabad, India},
+ pages = {424--434},
+ numpages = {11},
+ url = {http://doi.acm.org/10.1145/2568225.2568269},
+ doi = {10.1145/2568225.2568269},
+ acmid = {2568269},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {Empirical Research, Empirical Software Engineering, Fault Prediction, Inspection, Software Quality},
+}
+
+@ARTICLE{Xia2016TSEHydra,
+author={X. Xia and D. Lo and S. J. Pan and N. Nagappan and X. Wang},
+journal={IEEE Transactions on Software Engineering},
+title={HYDRA: Massively Compositional Model for Cross-Project Defect Prediction},
+year={2016},
+volume={42},
+number={10},
+pages={977-998},
+keywords={genetic algorithms;learning (artificial intelligence);pattern classification;regression analysis;software fault tolerance;EL phase;GA phase;HYDRA model;PROMISE repository;classification algorithm;cross-project defect prediction;genetic algorithm phase;hybrid model reconstruction approach;logistic regression;massively compositional model;phase and ensemble learning phase;software defect prediction approach;Architecture;Buildings;Data models;Genetic algorithms;Measurement;Predictive models;Training;Cross-project defect prediction;ensemble learning;genetic algorithm;transfer learning},
+doi={10.1109/TSE.2016.2543218},
+ISSN={0098-5589},
+month={Oct},}
+
+
+@inproceedings{Nam2015FSEHDP,
+ author = {Nam, Jaechang and Kim, Sunghun},
+ title = {Heterogeneous Defect Prediction},
+ booktitle = {Proceedings of the 2015 10th Joint Meeting on Foundations of Software Engineering},
+ series = {ESEC/FSE 2015},
+ year = {2015},
+ isbn = {978-1-4503-3675-8},
+ location = {Bergamo, Italy},
+ pages = {508--519},
+ numpages = {12},
+ url = {http://doi.acm.org/10.1145/2786805.2786814},
+ doi = {10.1145/2786805.2786814},
+ acmid = {2786814},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {Defect prediction, heterogeneous metrics, quality assurance},
+}
+
+@inproceedings{Shihab2012FSEindustrial,
+ author = {Shihab, Emad and Hassan, Ahmed E. and Adams, Bram and Jiang, Zhen Ming},
+ title = {An Industrial Study on the Risk of Software Changes},
+ booktitle = {Proceedings of the ACM SIGSOFT 20th International Symposium on the Foundations of Software Engineering},
+ series = {FSE '12},
+ year = {2012},
+ isbn = {978-1-4503-1614-9},
+ location = {Cary, North Carolina},
+ pages = {62:1--62:11},
+ articleno = {62},
+ numpages = {11},
+ url = {http://doi.acm.org/10.1145/2393596.2393670},
+ doi = {10.1145/2393596.2393670},
+ acmid = {2393670},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {bug inducing changes, change metrics, change risk, code metrics},
+}
+
+
+
+@Article{DAmbros2012EMSEbenchmark,
+author="D'Ambros, Marco
+and Lanza, Michele
+and Robbes, Romain",
+title="Evaluating defect prediction approaches: a benchmark and an extensive comparison",
+journal="Empirical Software Engineering",
+year="2012",
+month="Aug",
+day="01",
+volume="17",
+number="4",
+pages="531--577",
+issn="1573-7616",
+doi="10.1007/s10664-011-9173-9",
+url="https://doi.org/10.1007/s10664-011-9173-9"
+}
+@INPROCEEDINGS{Wu2011FSEReLink,
+ author = {Wu, Rongxin and Zhang, Hongyu and Kim, Sunghun and Cheung, Shing-Chi},
+ title = {ReLink: Recovering Links Between Bugs and Changes},
+ booktitle = {Proceedings of the 19th ACM SIGSOFT Symposium and the 13th European Conference on Foundations of Software Engineering},
+ series = {ESEC/FSE '11},
+ year = {2011},
+ isbn = {978-1-4503-0443-6},
+ location = {Szeged, Hungary},
+ pages = {15--25},
+ numpages = {11},
+ url = {http://doi.acm.org/10.1145/2025113.2025120},
+ doi = {10.1145/2025113.2025120},
+ acmid = {2025120},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {bugs, changes, data quality, mining software repository, missing links},
+ }
+@inproceedings{ghotra2017msr,
+  Author = {Baljinder Ghotra and Shane McIntosh and Ahmed E. Hassan},
+  Title = {A Large-Scale Study of the Impact of Feature Selection Techniques on Defect Classification Models},
+  Year = {2017},
+  Booktitle = {Proc. of the International Conference on Mining Software Repositories (MSR)},
+  Pages = {146–157}
+}
+@Inbook{Jolliffe2011,
+author="Jolliffe, Ian",
+editor="Lovric, Miodrag",
+title="Principal Component Analysis",
+bookTitle="International Encyclopedia of Statistical Science",
+year="2011",
+publisher="Springer Berlin Heidelberg",
+address="Berlin, Heidelberg",
+pages="1094--1096",
+isbn="978-3-642-04898-2",
+doi="10.1007/978-3-642-04898-2_455",
+url="https://doi.org/10.1007/978-3-642-04898-2_455"
+}
+@ARTICLE{McIntosh2017TSELongitudinal,
+author={S. McIntosh and Y. Kamei},
+journal={IEEE Transactions on Software Engineering},
+title={Are Fix-Inducing Changes a Moving Target? A Longitudinal Case Study of Just-In-Time Defect Prediction},
+year={2017},
+volume={PP},
+number={99},
+pages={1-1},
+keywords={Calibration;Complexity theory;Context modeling;Data models;Market research;Predictive models;Software;Just-In-Time prediction;defect prediction;mining software repositories},
+doi={10.1109/TSE.2017.2693980},
+ISSN={0098-5589},
+month={},}
+@INPROCEEDINGS{Zimmermann2008ICSEnetwork,
+author={T. Zimmermann and N. Nagappan},
+booktitle={2008 ACM/IEEE 30th International Conference on Software Engineering},
+title={Predicting defects using network analysis on dependency graphs},
+year={2008},
+volume={},
+number={},
+pages={531-540},
+keywords={software metrics;software quality;Windows developers;central program units;code complexity metrics;defects prediction;dependency graphs;network analysis;quality assurance;resources allocation;software development;Costs;Engineering management;Network servers;Permission;Predictive models;Quality assurance;Quality management;Resource management;Software engineering;Software measurement;defect prediction;dependency graph;network analysis;windows server 2003},
+doi={10.1145/1368088.1368161},
+ISSN={0270-5257},
+month={May},}
+@Article{Bettenburg2015EMSElocallyglobally,
+author="Bettenburg, Nicolas
+and Nagappan, Meiyappan
+and Hassan, Ahmed E.",
+title="Towards improving statistical modeling of software engineering data: think locally, act globally!",
+journal="Empirical Software Engineering",
+year="2015",
+month="Apr",
+day="01",
+volume="20",
+number="2",
+pages="294--335",
+issn="1573-7616",
+doi="10.1007/s10664-013-9292-6",
+url="https://doi.org/10.1007/s10664-013-9292-6"
+}
+@ARTICLE{Jiarpakdee2019TSE, 
+    author={J. {Jiarpakdee} and C. {Tantithamthavorn} and A. E. {Hassan}}, 
+    journal={IEEE Transactions on Software Engineering}, 
+    title={The Impact of Correlated Metrics on the Interpretation of Defect Models},
+    year={2019}, 
+    volume={}, 
+    number={}, 
+    pages={1-1}, 
+    keywords={Measurement;Analytical models;Analysis of variance;Complexity theory;Software quality;Computer bugs;Correlation;Software Quality Assurance;Defect models;Hypothesis Testing;Correlated Metrics;Model Specification}, 
+    doi={10.1109/TSE.2019.2891758}, 
+    ISSN={0098-5589}, 
+    month={},
+}
+@INPROCEEDINGS{Holschuh2009ICSESAP,
+author={T. Holschuh and M. Pauser and K. Herzig and T. Zimmermann and R. Premraj and A. Zeller},
+booktitle={2009 31st International Conference on Software Engineering - Companion Volume},
+title={Predicting defects in SAP Java code: An experience report},
+year={2009},
+volume={},
+number={},
+pages={172-181},
+keywords={Java;object-oriented programming;program debugging;program diagnostics;quality assurance;software maintenance;software metrics;software quality;SAP Java code;complexity metric;defect prediction;large-software system component;software change frequency;software component import;software quality assurance;static error detector;Detectors;Frequency;History;Java;Power system modeling;Predictive models;Quality assurance;Resource management;Software systems;Software testing},
+doi={10.1109/ICSE-COMPANION.2009.5070975},
+ISSN={},
+month={May},}
+@article{Kondo2019EMSEreduction,
+	Author = {Kondo, Masanari and Bezemer, Cor-Paul and Kamei, Yasutaka and Hassan, Ahmed E. and Mizuno, Osamu},
+	Date-Modified = {2019-07-22 17:56:17 +0900},
+	Day = {22},
+	Doi = {10.1007/s10664-018-9679-5},
+	Issn = {1573-7616},
+	Journal = {Empirical Software Engineering},
+	Month = {Jan},
+	Read = {0},
+	Title = {The impact of feature reduction techniques on defect prediction models},
+	Url = {https://doi.org/10.1007/s10664-018-9679-5},
+	Year = {2019},
+	Bdsk-Url-1 = {https://doi.org/10.1007/s10664-018-9679-5}
+}
+@Article{Liparas2012ASEJournalMahalanobis,
+author="Liparas, Dimitris
+and Angelis, Lefteris
+and Feldt, Robert",
+title="Applying the Mahalanobis-Taguchi strategy for software defect diagnosis",
+journal="Automated Software Engineering",
+year="2012",
+month="Jun",
+day="01",
+volume="19",
+number="2",
+pages="141--165",
+abstract="The Mahalanobis-Taguchi (MT) strategy combines mathematical and statistical concepts like Mahalanobis distance, Gram-Schmidt orthogonalization and experimental designs to support diagnosis and decision-making based on multivariate data. The primary purpose is to develop a scale to measure the degree of abnormality of cases, compared to ``normal'' or ``healthy'' cases, i.e. a continuous scale from a set of binary classified cases. An optimal subset of variables for measuring abnormality is then selected and rules for future diagnosis are defined based on them and the measurement scale. This maps well to problems in software defect prediction based on a multivariate set of software metrics and attributes. In this paper, the MT strategy combined with a cluster analysis technique for determining the most appropriate training set, is described and applied to well-known datasets in order to evaluate the fault-proneness of software modules. The measurement scale resulting from the MT strategy is evaluated using ROC curves and shows that it is a promising technique for software defect diagnosis. It compares favorably to previously evaluated methods on a number of publically available data sets. The special characteristic of the MT strategy that it quantifies the level of abnormality can also stimulate and inform discussions with engineers and managers in different defect prediction situations.",
+issn="1573-7535",
+doi="10.1007/s10515-011-0091-2",
+url="https://doi.org/10.1007/s10515-011-0091-2"
+}
+@article{MA2016ISTNetworkMeasures,
+title = "Empirical analysis of network measures for effort-aware fault-proneness prediction",
+journal = "Information and Software Technology",
+volume = "69",
+pages = "50 - 70",
+year = "2016",
+issn = "0950-5849",
+doi = "https://doi.org/10.1016/j.infsof.2015.09.001",
+url = "http://www.sciencedirect.com/science/article/pii/S0950584915001524",
+author = "Wanwangying Ma and Lin Chen and Yibiao Yang and Yuming Zhou and Baowen Xu"
+}
+@article{Mensah2018ISTDuplex,
+title = "Duplex output software effort estimation model with self-guided interpretation",
+journal = "Information and Software Technology",
+volume = "94",
+pages = "1 - 13",
+year = "2018",
+issn = "0950-5849",
+doi = "https://doi.org/10.1016/j.infsof.2017.09.010",
+url = "http://www.sciencedirect.com/science/article/pii/S0950584916304025",
+author = "Solomon Mensah and Jacky Keung and Michael Franklin Bosu and Kwabena Ebo Bennin",
+}
+@inproceedings{Posnett2011ASEEcologicalInference,
+ author = {Posnett, Daryl and Filkov, Vladimir and Devanbu, Premkumar},
+ title = {Ecological Inference in Empirical Software Engineering},
+ year = {2011},
+ isbn = {9781457716386},
+ publisher = {IEEE Computer Society},
+ address = {USA},
+ url = {https://doi.org/10.1109/ASE.2011.6100074},
+ doi = {10.1109/ASE.2011.6100074},
+ booktitle = {Proceedings of the 2011 26th IEEE/ACM International Conference on Automated Software Engineering},
+ pages = {362–371},
+ numpages = {10},
+ series = {ASE ’11}
+}
+@inproceedings{Rahman2012FSERecalling,
+ author = {Rahman, Foyzur and Posnett, Daryl and Devanbu, Premkumar},
+ title = {Recalling the "Imprecision" of Cross-project Defect Prediction},
+ booktitle = {Proceedings of the ACM SIGSOFT 20th International Symposium on the Foundations of Software Engineering},
+ series = {FSE '12},
+ year = {2012},
+ isbn = {978-1-4503-1614-9},
+ location = {Cary, North Carolina},
+ pages = {61:1--61:11},
+ articleno = {61},
+ numpages = {11},
+ url = {http://doi.acm.org/10.1145/2393596.2393669},
+ doi = {10.1145/2393596.2393669},
+ acmid = {2393669},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {empirical software engineering, fault prediction, inspection},
+}
+@inproceedings{Rahman2013FSEbias,
+ author = {Rahman, Foyzur and Posnett, Daryl and Herraiz, Israel and Devanbu, Premkumar},
+ title = {Sample Size vs. Bias in Defect Prediction},
+ booktitle = {Proceedings of the 2013 9th Joint Meeting on Foundations of Software Engineering},
+ series = {ESEC/FSE 2013},
+ year = {2013},
+ isbn = {978-1-4503-2237-9},
+ location = {Saint Petersburg, Russia},
+ pages = {147--157},
+ numpages = {11},
+ url = {http://doi.acm.org/10.1145/2491411.2491418},
+ doi = {10.1145/2491411.2491418},
+ acmid = {2491418},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {bias, defect prediction, size},
+}
+@INPROCEEDINGS{Rajbahadur2017MSRRegression, 
+author={G. K. {Rajbahadur} and S. {Wang} and Y. {Kamei} and A. E. {Hassan}}, 
+booktitle={2017 IEEE/ACM 14th International Conference on Mining Software Repositories (MSR)}, 
+title={The Impact of Using Regression Models to Build Defect Classifiers}, 
+year={2017}, 
+volume={}, 
+number={}, 
+pages={135-145}, 
+keywords={learning (artificial intelligence);pattern classification;program debugging;regression analysis;software quality;nondefective classes;defective classes;target variable;defect classifiers;continuous defect counts discretization;regression models;regression-based classifiers;discretized classifiers;machine learning classifiers;linear regression;random forest;KNN;SVM;CART;neural networks;classifier building approach;defect classification studies;logistic regression;Buildings;Correlation;Software;Predictive models;Redundancy;Computational modeling;Data collection;Classification via regression;Random forest;Bug prediction;Discretization;Non-Discretization;Model Interpretation}, 
+doi={10.1109/MSR.2017.4}, 
+ISSN={null}, 
+month={May},}
+@inproceedings{Ray2014FSElaguageandquality,
+ author = {Ray, Baishakhi and Posnett, Daryl and Filkov, Vladimir and Devanbu, Premkumar},
+ title = {A Large Scale Study of Programming Languages and Code Quality in Github},
+ booktitle = {Proceedings of the 22Nd ACM SIGSOFT International Symposium on Foundations of Software Engineering},
+ series = {FSE 2014},
+ year = {2014},
+ isbn = {978-1-4503-3056-5},
+ location = {Hong Kong, China},
+ pages = {155--165},
+ numpages = {11},
+ url = {http://doi.acm.org/10.1145/2635868.2635922},
+ doi = {10.1145/2635868.2635922},
+ acmid = {2635922},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {bug fix, code quality, empirical research, programming language, regression analysis, software domain, type system},
+}
+@ARTICLE{Tantithamthavorn2018TSEClassRebalancing, 
+author={C. {Tantithamthavorn} and A. E. {Hassan} and K. {Matsumoto}}, 
+journal={IEEE Transactions on Software Engineering}, 
+title={The Impact of Class Rebalancing Techniques on the Performance and Interpretation of Defect Prediction Models}, 
+year={2018}, 
+volume={}, 
+number={}, 
+pages={1-1}, 
+keywords={Predictive models;Training;Analytical models;Guidelines;Context modeling;Open source software;Software quality assurance;software defect prediction;class rebalancing techniques;experimental design;empirical investigation}, 
+doi={10.1109/TSE.2018.2876537}, 
+ISSN={2326-3881}, 
+month={},}
+@INPROCEEDINGS{Tantithamthavorn2015ICSEMislabelling,
+author={C. Tantithamthavorn and S. McIntosh and A. E. Hassan and A. Ihara and K. Matsumoto},
+booktitle={2015 IEEE/ACM 37th IEEE International Conference on Software Engineering},
+title={The Impact of Mislabelling on the Performance and Interpretation of Defect Prediction Models},
+year={2015},
+volume={1},
+number={},
+pages={812-823},
+keywords={software performance evaluation;software reliability;Apache Jackrabbit system;Lucene system;defect prediction model interpretation;defect prediction model performance;defect prediction models;mislabelling impact;prediction model reliability;randomly-injected noise;software modules;Data mining;Data models;Noise;Noise measurement;Predictive models;Software;Data Quality;Mislabelling;Software Defect Prediction;Software Quality Assurance},
+doi={10.1109/ICSE.2015.93},
+ISSN={0270-5257},
+month={May},}
+@ARTICLE{Tantithamthavorn2019TSEAutomatedParameter, 
+author={C. {Tantithamthavorn} and S. {McIntosh} and A. E. {Hassan} and K. {Matsumoto}}, 
+journal={IEEE Transactions on Software Engineering}, 
+title={The Impact of Automated Parameter Optimization on Defect Prediction Models}, 
+year={2019}, 
+volume={45}, 
+number={7}, 
+pages={683-711}, 
+keywords={optimisation;pattern classification;random forests;software quality;support vector machines;automated parameter optimization;random forest;nonoptimized classifiers;optimized settings;20 most sensitive parameters;parameter space;parameter-sensitive classification techniques;defect prediction models;defect-prone software modules;support vector machines;Optimization;Predictive models;Computational modeling;Software;Neural networks;Computational efficiency;Power system stability;Software defect prediction;search-based software engineering;experimental design;classification techniques;parameter optimization;grid search;random search;genetic algorithm;differential evolution}, 
+doi={10.1109/TSE.2018.2794977}, 
+ISSN={2326-3881}, 
+month={July},}
+@inproceedings{Yang2016FSEunsupervised,
+ author = {Yang, Yibiao and Zhou, Yuming and Liu, Jinping and Zhao, Yangyang and Lu, Hongmin and Xu, Lei and Xu, Baowen and Leung, Hareton},
+ title = {Effort-aware Just-in-time Defect Prediction: Simple Unsupervised Models Could Be Better Than Supervised Models},
+ booktitle = {Proceedings of the 2016 24th ACM SIGSOFT International Symposium on Foundations of Software Engineering},
+ series = {FSE 2016},
+ year = {2016},
+ isbn = {978-1-4503-4218-6},
+ location = {Seattle, WA, USA},
+ pages = {157--168},
+ numpages = {12},
+ url = {http://doi.acm.org/10.1145/2950290.2950353},
+ doi = {10.1145/2950290.2950353},
+ acmid = {2950353},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {Defect, changes, effort-aware, just-in-time, prediction},
+}
+@article{Zhao2015ISTPackageMetrics,
+title = "An empirical analysis of package-modularization metrics: Implications for software fault-proneness",
+journal = "Information and Software Technology",
+volume = "57",
+pages = "186 - 203",
+year = "2015",
+issn = "0950-5849",
+doi = "https://doi.org/10.1016/j.infsof.2014.09.006",
+url = "http://www.sciencedirect.com/science/article/pii/S0950584914002055",
+author = "Yangyang Zhao and Yibiao Yang and Hongmin Lu and Yuming Zhou and Qinbao Song and Baowen Xu",
+}
+@Article{Bettenburg2013EMSEinteractions,
+author="Bettenburg, Nicolas
+and Hassan, Ahmed E.",
+title="Studying the impact of social interactions on software quality",
+journal="Empirical Software Engineering",
+year="2013",
+month="Apr",
+day="01",
+volume="18",
+number="2",
+pages="375--431",
+issn="1573-7616",
+doi="10.1007/s10664-012-9205-0",
+url="https://doi.org/10.1007/s10664-012-9205-0"
+}
+@INPROCEEDINGS{Bird2012MSRdistributed, 
+author={C. {Bird} and N. {Nagappan}}, 
+booktitle={2012 9th IEEE Working Conference on Mining Software Repositories (MSR)}, 
+title={Who? Where? What? Examining distributed development in two large open source projects}, 
+year={2012}, 
+volume={}, 
+number={}, 
+pages={237-246}, 
+keywords={Internet;organisational aspects;project management;public domain software;distributed development;open source software development;organizational distribution;geographic location distribution;OSS project;FIREFOX;ECLIPSE;Internet;project constituent subsystem;postrelease defect;prerelease defect;Fires;Companies;Electronic mail;Open source software;Standards organizations}, 
+doi={10.1109/MSR.2012.6224286}, 
+ISSN={2160-1852}, 
+month={June},}
+@inproceedings{Bird2011FSEdonttouch,
+ author = {Bird, Christian and Nagappan, Nachiappan and Murphy, Brendan and Gall, Harald and Devanbu, Premkumar},
+ title = {Don't Touch My Code!: Examining the Effects of Ownership on Software Quality},
+ booktitle = {Proceedings of the 19th ACM SIGSOFT Symposium and the 13th European Conference on Foundations of Software Engineering},
+ series = {ESEC/FSE '11},
+ year = {2011},
+ isbn = {978-1-4503-0443-6},
+ location = {Szeged, Hungary},
+ pages = {4--14},
+ numpages = {11},
+ url = {http://doi.acm.org/10.1145/2025113.2025119},
+ doi = {10.1145/2025113.2025119},
+ acmid = {2025119},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {emprical software engineering, expertise, ownership, quality},
+}
+@ARTICLE{Cataldo2009TSEdependencies,
+author={M. Cataldo and A. Mockus and J. A. Roberts and J. D. Herbsleb},
+journal={IEEE Transactions on Software Engineering},
+title={Software Dependencies, Work Dependencies, and Their Impact on Failures},
+year={2009},
+volume={35},
+number={6},
+pages={864-878},
+keywords={software fault tolerance;software maintenance;software metrics;software quality;customer-reported software faults;quality analysis;software dependencies;work dependencies;Distribution/maintenance/enhancement;metrics/measurement;organizational management and coordination;quality analysis and evaluation.},
+doi={10.1109/TSE.2009.42},
+ISSN={0098-5589},
+month={Nov},}
+@INPROCEEDINGS{Chen2012MSRExplaining, 
+author={T. {Chen} and S. W. {Thomas} and M. {Nagappan} and A. E. {Hassan}}, 
+booktitle={2012 9th IEEE Working Conference on Mining Software Repositories (MSR)}, 
+title={Explaining software defects using topic models}, 
+year={2012}, 
+volume={}, 
+number={}, 
+pages={189-198}, 
+keywords={software fault tolerance;software metrics;software quality;statistical analysis;software defects;source code entities;software project;software development;business logic;code lines;I/O tasks;code quality;statistical topic modeling technique;defect-proneness;Mozilla Firefox;Eclipse;Mylyn;structural metrics;historical metrics;Measurement;Fires;Software systems;Java;History;Correlation;software concerns;code quality;topic modeling}, 
+doi={10.1109/MSR.2012.6224280}, 
+ISSN={2160-1852}, 
+month={June},}
+@Article{Devine2016ASEJSPL,
+author="Devine, Thomas
+and Goseva-Popstojanova, Katerina
+and Krishnan, Sandeep
+and Lutz, Robyn R.",
+title="Assessment and cross-product prediction of software product line quality: accounting for reuse across products, over multiple releases",
+journal="Automated Software Engineering",
+year="2016",
+month="Jun",
+day="01",
+volume="23",
+number="2",
+pages="253--302",
+issn="1573-7535",
+doi="10.1007/s10515-014-0160-4",
+url="https://doi.org/10.1007/s10515-014-0160-4"
+}
+@ARTICLE{Eaddy2008TSEcrosscutting,
+author={M. Eaddy and T. Zimmermann and K. D. Sherwood and V. Garg and G. C. Murphy and N. Nagappan and A. V. Aho},
+journal={IEEE Transactions on Software Engineering},
+title={Do Crosscutting Concerns Cause Defects?},
+year={2008},
+volume={34},
+number={4},
+pages={497-515},
+keywords={data mining;software engineering;code quality;crosscutting concerns;software modules;statistically significant correlation;Correlation and regression analysis;Distribution Maintenance and Enhancement;Metrics/Measurement;Quality analysis and evaluation;Software Construction;Software Engineering;Software Quality/SQA;User/Machine Systems;Validation},
+doi={10.1109/TSE.2008.36},
+ISSN={0098-5589},
+month={July},}
+@inproceedings{McIntosh2014MSRCodeReview,
+ author = {McIntosh, Shane and Kamei, Yasutaka and Adams, Bram and Hassan, Ahmed E.},
+ title = {The Impact of Code Review Coverage and Code Review Participation on Software Quality: A Case Study of the Qt, VTK, and ITK Projects},
+ booktitle = {Proceedings of the 11th Working Conference on Mining Software Repositories},
+ series = {MSR 2014},
+ year = {2014},
+ isbn = {978-1-4503-2863-0},
+ location = {Hyderabad, India},
+ pages = {192--201},
+ numpages = {10},
+ url = {http://doi.acm.org/10.1145/2597073.2597076},
+ doi = {10.1145/2597073.2597076},
+ acmid = {2597076},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {Code reviews, software quality},
+}
+@inproceedings{Meneely2011FSEmanpower,
+ author = {Meneely, Andrew and Rotella, Pete and Williams, Laurie},
+ title = {Does Adding Manpower Also Affect Quality?: An Empirical, Longitudinal Analysis},
+ booktitle = {Proceedings of the 19th ACM SIGSOFT Symposium and the 13th European Conference on Foundations of Software Engineering},
+ series = {ESEC/FSE '11},
+ year = {2011},
+ isbn = {978-1-4503-0443-6},
+ location = {Szeged, Hungary},
+ pages = {81--90},
+ numpages = {10},
+ url = {http://doi.acm.org/10.1145/2025113.2025128},
+ doi = {10.1145/2025113.2025128},
+ acmid = {2025128},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {brooks' law, developer, linear regression, longitudinal analysis, modularity, team expansion metric},
+}
+@inproceedings{Mockus2010FSEOrgVolatlity,
+ author = {Mockus, Audris},
+ title = {Organizational Volatility and Its Effects on Software Defects},
+ booktitle = {Proceedings of the Eighteenth ACM SIGSOFT International Symposium on Foundations of Software Engineering},
+ series = {FSE '10},
+ year = {2010},
+ isbn = {978-1-60558-791-2},
+ location = {Santa Fe, New Mexico, USA},
+ pages = {117--126},
+ numpages = {10},
+ url = {http://doi.acm.org/10.1145/1882291.1882311},
+ doi = {10.1145/1882291.1882311},
+ acmid = {1882311},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {organizational volatility, software defects},
+}
+@INPROCEEDINGS{Nagappan2008ICSEorg,
+author={N. Nagappan and B. Murphy and V. Basili},
+booktitle={2008 ACM/IEEE 30th International Conference on Software Engineering},
+title={The influence of organizational structure on software quality},
+year={2008},
+volume={},
+number={},
+pages={521-530},
+keywords={organisational aspects;software development management;software performance evaluation;software quality;Mythical Man Month book;Windows Vista;failure-prone binaries;organizational complexity;organizational structure;pre-release bug measures;product development process;software quality;software systems;Educational institutions;Engineering management;Programming;Quality management;Reliability engineering;Software engineering;Software measurement;Software metrics;Software quality;Software systems;code churn;developers;empirical studies;failures;organizational structure;software mining},
+doi={10.1145/1368088.1368160},
+ISSN={0270-5257},
+month={May},}
+@inproceedings{Pinzger2008FSEnetwork,
+ author = {Pinzger, Martin and Nagappan, Nachiappan and Murphy, Brendan},
+ title = {Can Developer-module Networks Predict Failures?},
+ booktitle = {Proceedings of the 16th ACM SIGSOFT International Symposium on Foundations of Software Engineering},
+ series = {SIGSOFT '08/FSE-16},
+ year = {2008},
+ isbn = {978-1-59593-995-1},
+ location = {Atlanta, Georgia},
+ pages = {2--12},
+ numpages = {11},
+ url = {http://doi.acm.org/10.1145/1453101.1453105},
+ doi = {10.1145/1453101.1453105},
+ acmid = {1453105},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {developer contribution network, failure prediction, network centrality measures, social network analysis},
+}
+@Article{Shang2015EMSElog,
+author="Shang, Weiyi
+and Nagappan, Meiyappan
+and Hassan, Ahmed E.",
+title="Studying the relationship between logging characteristics and the code quality of platform software",
+journal="Empirical Software Engineering",
+year="2015",
+month="Feb",
+day="01",
+volume="20",
+number="1",
+pages="1--27",
+issn="1573-7616",
+doi="10.1007/s10664-013-9274-8",
+url="https://doi.org/10.1007/s10664-013-9274-8"
+}
+@inproceedings{Shihab2011FSEhighimpact,
+ author = {Shihab, Emad and Mockus, Audris and Kamei, Yasutaka and Adams, Bram and Hassan, Ahmed E.},
+ title = {High-impact Defects: A Study of Breakage and Surprise Defects},
+ booktitle = {Proceedings of the 19th ACM SIGSOFT Symposium and the 13th European Conference on Foundations of Software Engineering},
+ series = {ESEC/FSE '11},
+ year = {2011},
+ isbn = {978-1-4503-0443-6},
+ location = {Szeged, Hungary},
+ pages = {300--310},
+ numpages = {11},
+ url = {http://doi.acm.org/10.1145/2025113.2025155},
+ doi = {10.1145/2025113.2025155},
+ acmid = {2025155},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {defect prediction, high-impact, process metrics},
+}
+@INPROCEEDINGS{Thongtanunam2016ICSEowndershipcodequality,
+author={P. Thongtanunam and S. McIntosh and A. E. Hassan and H. Iida},
+booktitle={2016 IEEE/ACM 38th International Conference on Software Engineering (ICSE)},
+title={Revisiting Code Ownership and Its Relationship with Software Quality in the Scope of Modern Code Review},
+year={2016},
+volume={},
+number={},
+pages={1039-1050},
+keywords={software quality;source code (software);OpenStack systems;code change authorship;code ownership heuristics;code review activity;large Qt systems;large software systems;modern code review processes;post-release defects;software quality;Birds;Conferences;Organizations;Software design;Software quality;Software systems;Expertise;Ownership;Software Quality},
+doi={10.1145/2884781.2884852},
+ISSN={},
+month={May},}
+@ARTICLE{YangTSE2015cohesion,
+author={Y. Yang and Y. Zhou and H. Lu and L. Chen and Z. Chen and B. Xu and H. Leung and Z. Zhang},
+journal={IEEE Transactions on Software Engineering},
+title={Are Slice-Based Cohesion Metrics Actually Useful in Effort-Aware Post-Release Fault-Proneness Prediction? An Empirical Study},
+year={2015},
+volume={41},
+number={4},
+pages={331-357},
+keywords={principal component analysis;public domain software;software metrics;Halstead's software science;baseline code;baseline metrics;code churn metrics;effort aware post-release fault proneness prediction;multivariate prediction models;open source software systems;principal component analysis;process metrics;slice-based cohesion metrics leverage program slices;structural complexity;univariate prediction models;Complexity theory;Context;Correlation;Laboratories;Measurement;Predictive models;Software;Cohesion;effort-aware;fault-proneness;metrics;prediction;slice-based},
+doi={10.1109/TSE.2014.2370048},
+ISSN={0098-5589},
+month={April},}
+@INPROCEEDINGS{Ambros2010MSRExtensiveComparison, 
+author={M. {D'Ambros} and M. {Lanza} and R. {Robbes}}, 
+booktitle={2010 7th IEEE Working Conference on Mining Software Repositories (MSR 2010)}, 
+title={An extensive comparison of bug prediction approaches}, 
+year={2010}, 
+volume={}, 
+number={}, 
+pages={31-41}, 
+keywords={program debugging;resource allocation;software engineering;bug prediction approaches;software defects;software engineering;resource allocation problem;Computer bugs;Entropy;Software systems;Predictive models;Open source software;Informatics;Computer science;Software engineering;Stability;Power system modeling}, 
+doi={10.1109/MSR.2010.5463279}, 
+ISSN={2160-1860}, 
+month={May},}
+@ARTICLE{Palomba2017TSEsmell,
+author={F. Palomba and M. Zanoni and F. Arcelli Fontana and A. De Lucia and R. Oliveto},
+journal={IEEE Transactions on Software Engineering},
+title={Toward a Smell-aware Bug Prediction Model},
+year={2017},
+volume={PP},
+number={99},
+pages={1-1},
+keywords={Complexity theory;Computer bugs;Entropy;Indexes;Measurement;Predictive models;Software;Bug Prediction;Code Smells;Empirical Study;Mining Software Repositories},
+doi={10.1109/TSE.2017.2770122},
+ISSN={0098-5589},
+month={},}
+@article{Hall2009WDMWEKA,
+ author = {Hall, Mark and Frank, Eibe and Holmes, Geoffrey and Pfahringer, Bernhard and Reutemann, Peter and Witten, Ian H.},
+ title = {The WEKA Data Mining Software: An Update},
+ journal = {SIGKDD Explor. Newsl.},
+ issue_date = {June 2009},
+ volume = {11},
+ number = {1},
+ month = nov,
+ year = {2009},
+ issn = {1931-0145},
+ pages = {10--18},
+ numpages = {9},
+ url = {http://doi.acm.org/10.1145/1656274.1656278},
+ doi = {10.1145/1656274.1656278},
+ acmid = {1656278},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+}
+//W. S. Sarle, “The varclus procedure,” in SAS/STAT User’s Guide. SAS Institute, Inc, 4th edition, 1990.
+@book{SarleTheVarclusProcedure,
+author = {W. S. Sarle},
+title = {The VARCLUS procedure},
+year = {1990},
+booktitle = {SAS/STAT User’s Guide. SAS Institute, Inc, 4th edition},
+}
+//Kazdin, A. E. (1999). The meanings and measurement of clinical significance. Journal of Consulting and Clinical Psychology, 67(3), 332–339. https://doi.org/10.1037/0022-006X.67.3.332
+@book{Kazdin1999meanings,
+author = {A. E. Kazdin},
+title = {The meanings and measurement of clinical significance},
+year = {1999},
+journal = "Journal of Consulting and Clinical Psychology",
+volume = "67(3)",
+pages = "332–339",
+}
+@article{Demsar:2006:SCC:1248547.1248548,
+ author = {Dem\v{s}ar, Janez},
+ title = {Statistical Comparisons of Classifiers over Multiple Data Sets},
+ journal = {J. Mach. Learn. Res.},
+ issue_date = {12/1/2006},
+ volume = {7},
+ month = dec,
+ year = {2006},
+ issn = {1532-4435},
+ pages = {1--30},
+ numpages = {30},
+ url = {http://dl.acm.org/citation.cfm?id=1248547.1248548},
+ acmid = {1248548},
+ publisher = {JMLR.org},
+}
+
+@inproceedings{romano2006should,
+  title={Should we really be using t-test and cohen's $\delta$ for evaluating group differences on the nsse and other surveys},
+  author={Romano, Jeanine and Kromrey, Jeffrey D and Coraggio, Jesse and Skowronek, Jeff},
+  booktitle={Annual meeting of the Florida association of institutional research},
+  year={2006}
+}
+@inproceedings{Nam2013ICSEtransfer,
+ author = {Nam, Jaechang and Pan, Sinno Jialin and Kim, Sunghun},
+ title = {Transfer Defect Learning},
+ booktitle = {Proceedings of the 2013 International Conference on Software Engineering},
+ series = {ICSE '13},
+ year = {2013},
+ isbn = {978-1-4673-3076-3},
+ location = {San Francisco, CA, USA},
+ pages = {382--391},
+ numpages = {10},
+ url = {http://dl.acm.org/citation.cfm?id=2486788.2486839},
+ acmid = {2486839},
+ publisher = {IEEE Press},
+ address = {Piscataway, NJ, USA},
+}
+@book{Harrell2006Regression,
+author = {Harrell, Frank E.},
+title = {Regression Modeling Strategies},
+year = {2006},
+isbn = {0387952322},
+publisher = {Springer-Verlag},
+address = {Berlin, Heidelberg}
+}
+
+@ARTICLE{Hall2003TKDEfeatureselection,
+author={M. A. Hall and G. Holmes},
+journal={IEEE Transactions on Knowledge and Data Engineering},
+title={Benchmarking attribute selection techniques for discrete class data mining},
+year={2003},
+volume={15},
+number={6},
+pages={1437-1447},
+keywords={Bayes methods;data mining;feature extraction;learning (artificial intelligence);pattern classification;C4.5 learning scheme;attribute ranking;attribute selection technique benchmarking;attribute utility estimation;classification learner;data engineering;discrete class data mining;naive Bayes learning scheme;predictive attribute identification;search;supervised classification;Buildings;Data engineering;Data mining;Decision trees;Fasteners;Phase noise;Predictive models;Reliability engineering;Testing;Training data},
+doi={10.1109/TKDE.2003.1245283},
+ISSN={1041-4347},
+month={Nov},}
+@TECHREPORT{Hall99correlation-basedfeature,
+    author = {Mark A. Hall},
+    title = {Correlation-based Feature Selection for Machine Learning},
+    institution = {},
+    year = {1999}
+}
+
+

@@ -1,0 +1,73 @@
+\begin{table*}
+% \centering
+% \small
+\caption{Defect prediction studies discussing about multicollinearity 
+%(from ICSE, FSE, ASE, MSR, TSE, EMSE, IST, and ASE journal
+between 2008 and 2020).
+(PCA: principal component analysis; VIF: variance inflation factor; MFS: manual feature selection; CFS: correlation-based feature selection; WFS: wrapper-based feature selection; SVS: stepwise variable selection; VC: variable clustering; RR: removal of redundant metrics, and Ridge: ridge regression)}
+\label{tab:listofpapers}
+% \captionsetup[table]{skip=10pt}
+\centering
+% \setlength{\tabcolsep}{2pt}
+\resizebox*{!}{0.8\textheight}{%
+% \begin{tabular}{l|l|l|l}
+\begin{tabular}{c|c|c|l}
+\hline
+\textbf{Style Group} & \textbf{Paper No.} & \textbf{RM} & \textbf{Actions} \\ \hline
+% \multirow{2}{*}{\textbf{Purpose of study}} & \textbf{Paper} & \textbf{RM} & \textbf{Actions} \\
+% & \textbf{Number} & & \\ 
+\hline
+& \cite{Bettenburg2015EMSElocallyglobally} & VIF & ICI, RM(CP) \\
+& \cite{Holschuh2009ICSESAP} & PCA & ICI, ICID, RM(CI), RM(CP) \\
+& \cite{Jiarpakdee2020EMSEautomated} & VIF & ICI, RM(CI) \\
+& \cite{Jiarpakdee2019TSE} & VC, VIF & ICI, RM(CI, CP) \\
+& \cite{Kamei2016EMSEjit} & MFS & ICID, ICI, RM(CP) \\
+& \cite{Kondo2019EMSEreduction} & - & CP \\
+& \cite{Liparas2012ASEJournalMahalanobis} & - & CP, ICID \\
+& \cite{MA2016ISTNetworkMeasures} & VIF & ICID, RM(CP) \\
+& \cite{McIntosh2017TSELongitudinal} & VC, RR & ICI, RM(CP, CI) \\
+& \cite{Mensah2018ISTDuplex} & VIF & RM(CI) \\
+(1) Provide & \cite{Posnett2011ASEEcologicalInference} & VIF & CP, RM(CI) \\
+guidelines & \cite{Rahman2014ICSEpredictionfinder} & - & CP \\
+& \cite{Rahman2012FSERecalling} & - & CP \\
+& \cite{Rahman2013FSEbias} & Ridge & RM(CP) \\
+& \cite{Rajbahadur2017MSRRegression} & VC, RR & ICI, RM(CP, CI) \\
+& \cite{Ray2014FSElaguageandquality} & VIF & RM(CI) \\
+& \cite{Tantithamthavorn2018TSEClassRebalancing} & VC, RR & ICI, RM(CP, CI) \\
+& \cite{Tantithamthavorn2015ICSEMislabelling} & RR & RM(CP, CI) \\
+& \cite{Tantithamthavorn2019TSEAutomatedParameter} & VC, RR & ICI, RM(CP, CI) \\
+& \cite{Yang2018TRRidge} & Ridge & ICI, RM(CP) \\
+& \cite{Yang2016FSEunsupervised} & MFS, SVS & RM(CP) \\
+& \cite{Zhang2017TSEaggregate} & PCA & ICI, ICID, RM(CP) \\
+& \cite{Zhao2015ISTPackageMetrics} & VIF & ICID, RM(CI, CP) \\
+\hline
+& \cite{Bettenburg2013EMSEinteractions} & VIF & ICID, ICI, RM(AI) \\
+& \cite{Bird2012MSRdistributed} & VIF & RM(AI) \\
+& \cite{Bird2011FSEdonttouch} & MFS & ICID, ICI, RM(AI), RM(AP) \\
+& \cite{Cataldo2009TSEdependencies} & VIF & ICI, RM(AI) \\
+& \cite{Chen2012MSRExplaining} & PCA & RM(AI) \\
+& \cite{Devine2016ASEJSPL} & SVS & RM(AP) \\
+& \cite{Eaddy2008TSEcrosscutting} & PCA & ICID, ICI, RM(AI) \\
+& \cite{Kamei2013TSEjit} & MFS, SVS & RM(AIP) \\
+& \cite{Lee2016TSEMIM} & CFS & RM(AP), ICID \\
+(2) Suggest & \cite{Kondo2020EMSEContext} & MFS, SVS & RM(AP) \\
+new metric & \cite{McIntosh2014MSRCodeReview} & MFS, VIF & ICI, RM(AI) \\
+and models & \cite{Meneely2011FSEmanpower} & MFS & ICID, ICI, RM(AI) \\
+& \cite{Mockus2010FSEOrgVolatlity} & MFS & RM(AI) \\
+& \cite{Nagappan2008ICSEorg} & SVS, PCA & ICI, RM(AP) \\
+& \cite{Pinzger2008FSEnetwork} & PCA, VIF & ICID, ICI, RM(AP), RM(AI) \\
+& \cite{Shihab2012FSEindustrial} & CFS & RM(AIP) \\
+& \cite{Shang2015EMSElog} & PCA & ICID, ICI, RM(AI) \\
+& \cite{Shihab2011FSEhighimpact} & MFS, VIF & RM(AIP) \\
+& \cite{Thongtanunam2016ICSEowndershipcodequality} & VC, RR & ICI, RM(AIP) \\
+& \cite{YangTSE2015cohesion} & VIF & ICID, ICI, RM(AP) \\
+& \cite{Zimmermann2008ICSEnetwork} & PCA & ICID, ICI, RM(AI), RM(AP) \\
+\hline
+& \cite{Ambros2010MSRExtensiveComparison} & PCA & RM(AI, AP, CI, CP) \\
+(1) and (2) & \cite{DAmbros2012EMSEbenchmark} & WFS & RM(AP, CP) \\
+& \cite{Palomba2017TSEsmell} & MFS, VIF & ICI, RM(AP, AI), RM(CP) \\ 
+\hline
+\end{tabular}
+}
+\end{table*}
+
