@@ -2,26 +2,29 @@
 
 \documentclass[11pt, oneside]{book}   %12 point font for Times New Roman
 \input{settings.tex}
+\input{config.tex}     % Change! user and thesis information
 %%%%%%%%%%%%%%%%%%%%%%
-
 % Start of Document
 \begin{document}
-
-\input{config.tex}     % Change! user and thesis information
 \frontmatter
 \input{titlepages.tex} % Don't touch! Title Pages
+\setstretch{1.5}
 \input{abstract.tex}   % Change! Abstract Page
 \input{contents.tex}   % Don't touch! Table of Contents, figures and tables
 % \input{chapters.tex}   % Change! Chapters including references
 \mainmatter
-\input{sections/1_intro}
-\input{sections/2_background}
-\input{sections/3_experimental}
-\input{sections/4_result}
-\input{sections/5_discussion}
-\input{sections/6_conclusion}
-\input{sections/7_ref}
-\input{acknowledge} % Change! Acknowledgement
-% 지호오빠꺼보고 레이텍 형식 수정하기
+\input{sections/1_intro.tex}
+\input{sections/2_background.tex}
+\input{sections/3_experimental.tex}
+\input{sections/4_result.tex}
+\input{sections/5_discussion.tex}
+\input{sections/6_conclusion.tex}
+
+\singlespacing
+\thispagestyle{fancy}
+\chapter{References}
+\printbibliography[heading=subbibliography]
+
+\input{acknowledge.tex} % Change! Acknowledgement
 \end{document}
 
